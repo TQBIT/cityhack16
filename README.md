@@ -12,4 +12,7 @@ All code and assets must be created during the hackathon.
 
 Closing the doors at 10pm on Friday and Saturday and re-opening at 8am on Saturday and Sunday.
 
-A technology solution. Your solution may be an app, website, virtual or augmented reality tool or mixed reality or even something new! You can build in the language and platform of your choice. Your output has to be related to the event topic. Get creative and build something innovative and unique!
+A technology solution. Your solution may be an app, website, virtual or augmented reality tool or mixed reality or even something new! 
+You can build in the language and platform of your choice. 
+Your output has to be related to the event topic. 
+Get creative and build something innovative and unique!
