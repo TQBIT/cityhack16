@@ -1,0 +1,29 @@
+helpme.io
+
+Peer to Peer sharing of anything, based on a search of my local area. The app incorporates a tinder-like subscribe and accept mechanism, that matches supply with need, if both parties were to agree.
+
+Cost of top-down sharing economy businesses still have too many overheads compounding expense. Peer-to-peer sharing matches people with spare capacity in a more serendipitous way. Like spare seats in a car that transits to the city daily. A meal for two that could feed six. Nobody to play pool with?
+
+Before the mobile phone or the internet. Planning was key to a successful activity. Today planning is always in flux, open to change with the mood of the individuals involved. If things don't go as planned. Surely we can call out to the cloud and have someone nearby answer. 
+
+Public spaces are geared for retail, but the hivemind and the network effect can provide a counter to the traditional ideal that one has to spend money when they go out.
+
+Specification
+Users can register their social networks. For credibility
+Any user can be on either the supply or demand side of the transaction
+A search can be conducted on a user-defined radius around their current location
+Offers are made by category (sport, food, sleep, transport)
+Offers are time-sensitive, 1 day or less
+Subscribers can see offers on the day of offer only
+Importantly if the response to an offer is turned down, the exact location of participants is not divulged.
+A search interfaces overlays a compass with the direction of the offer, and category of service. 
+One can request of the service and have an offer in the blink of an eye.
+The usual signup process grants entry to the system
+Offer, search, subscribe and accept can be handled with simple modals over compass UI
+Compass gives direction of offer within search area
+Offers can be created with a hashtag inside one's social network. Server infrastructure watches for this.
+Points are accumulated by participants in successful offer/accept activities.
+Audible alert sounds when subscriber and offering parties are at the same lat long coordinates 
+Lets meet at 5pm Friday at AECOM. 1 hour before the event to have a chat about tweaking the above....
+
+JP
