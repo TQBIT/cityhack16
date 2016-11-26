@@ -56,7 +56,7 @@ a {
 }
 
 /* login/registration/offer creation pages */
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], textarea, input[type="datetime-local"] {
 	background-color: #93A6BA;
 	color: white;
 	border-style: none;
@@ -69,7 +69,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 input[type="datetime-local"] {
-	width: 70%;
+	width: 80%;
+}
+
+input[name="OfferAddress"] {
+	width: 78%;
 }
 
 .glyphicon {
