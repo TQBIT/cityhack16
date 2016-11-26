@@ -29,6 +29,47 @@
 			}
 		}
 		
+		public function offerDetails($oid) {
+			if(is_numeric($oid)) {
+				$stmt = $this->pdo->prepare("SELECT * FROM `offer` WHERE `OID` = ?");
+				$stmt->execute(array($oid));
+				$offer = $stmt->fetch();
+				if(!empty($offer)) {
+					return json_encode($offer);
+				} else {
+					return json_encode(array(0, 'fail', 'There was no offer found'));
+				}
+			}
+		}
+		
+		public function showRequestees($oid) {
+			$stmt = $this->pdo->prepare("SELECT * FROM `offer` WHERE `OID` = ? AND `UID` = ?");
+			$stmt->execute(array($oid, $_SESSION['UID']));
+			$offer = $stmt->fetch();
+			
+			if(!empty($offer)) {
+				$stmt = $this->pdo->prepare("SELECT * FROM `request` WHERE `OID` = ?");
+				$stmt->execute(array($oid));
+				$requesters = $stmt->fetchAll();
+				return json_encode($requesters);
+			}
+			else {
+				return json_encode(array(0, 'error', 'An error occurred.'));
+			}
+			
+		}
+		
+		public function acceptRequesr($rid) {
+			
+		}
+		
+		public function listCategories() {
+			$stmt = $this->pdo->prepare("SELECT * FROM `category`");
+			$stmt->execute();
+			$categories = $stmt->fetchAll();
+			return json_encode($categories);
+		}
+		
 		public function requestOffer($oid) {
 			if($this->isLogged()) {
 				$uid = $_SESSION['UID'];
