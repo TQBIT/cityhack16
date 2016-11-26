@@ -204,7 +204,7 @@
 							return json_encode(array(1, 'success'));
 						} else {
 							$this->errors[] =  "Invalid password.";
-							return json_encode(array(0, 'error', $password, $this->errors));
+							return json_encode(array(0, 'error', $this->errors));
 						}
 					} else {
 						$this->errors[] = 'Invalid username.';
