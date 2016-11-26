@@ -58,7 +58,7 @@ label {
 
 .logo-image {
 	max-width: 60%;
-	margin: 3rem 0 2.5rem 2.5rem;
+	margin: 7rem 0 2.5rem 2.5rem;
 }
 
 .navbar-brand img {
@@ -114,6 +114,11 @@ input[type="submit"] {
 }
 .offer-avatar {
 }
+.offer-event {
+    margin-left: 0.5rem;
+    font-weight: bold;
+   
+}
 .accordion-toggle {
 	margin: 0;
 	padding: 0;
@@ -121,7 +126,15 @@ input[type="submit"] {
 .accordion-toggle span {
 	color: black;
 }
-
+.glyphicon-star{
+    color:orange;
+    font-size:1.5rem;
+}
+.glyphicon-star-empty{
+    color:goldenrod;
+    font-size:1.5rem;
+    margin-left:-0.3rem;
+}
 .glyphicon-ok-sign {
 	color: green;
 }
@@ -140,8 +153,8 @@ input[type="submit"] {
 	display: flex;
 	align-items: center;
 	background-color: #93A6BA;
-	line-height: 5rem;
-	margin: 1rem;
+	line-height: 4rem;
+	margin: 4%;
 }
 
 .field input, .field textarea {
@@ -160,4 +173,9 @@ input[type="submit"] {
 input[type="submit"] {
 	background-color: white;
 	color: black;
+}
+/*submit button*/
+#accept_submit{
+    background-color: #0C2243;
+    color: white;
 }
