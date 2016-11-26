@@ -46,6 +46,10 @@ a {
 	margin: 3rem;
 }
 
+.navbar-brand img {
+	display: inline-block;
+}
+
 .container {
 	text-align: center;
 }
@@ -63,7 +67,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 	font-weight: lighter;
 }
 
-.glyphicon-user, .glyphicon-lock {
+.glyphicon-user, .glyphicon-lock, .glyphicon-envelope {
 	font-size: 1.5em;
 	color: white;
 }
