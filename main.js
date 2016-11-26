@@ -57,7 +57,7 @@ function createOffer() {
 	var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
 	var ImageURL = '';
 	getLatLong(OfferAddress);
-
+	console.log(OfferLat);
 	$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
 		alert(data);
 		data = JSON.parse(data);
@@ -74,14 +74,22 @@ function login() {
 	var password = document.getElementsByName('password')[0].value;
 	
 	$.get( "webservice/ws.php?action=login&email=" + email + "&password=" + password, function( data ) {
-		alert(data);
 		data = JSON.parse(data);
 		if(data[0] == 1) {
-			console.log('successfully logged in');
 			window.location.replace('html/offers.html');
 		} else {
 			console.log(data[2]);
 			console.log('no');
+			if(document.getElementById('error')) {	
+				document.getElementById('error').innerHTML = data[2];
+			} else {
+				var error = document.createElement('div');
+				error.setAttribute('class', 'notification');
+				error.setAttribute('id', 'error');
+				var errorText = document.createTextNode(data[2]);
+				error.appendChild(errorText);
+				document.getElementById('hook').appendChild(error);
+			}
 		}
 	});
 }
