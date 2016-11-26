@@ -49,7 +49,7 @@ label {
 .logo-image {
 	max-width: 60%;
 	margin: 3rem 0 2.5rem 2.5rem;
-  
+
 }
 
 .navbar-brand img {
@@ -121,10 +121,12 @@ input[type="submit"] {
 .offer {
 	background: linear-gradient(to right, #063555, #095b82);
 }
-.accordion-toggle {
-	margin-left: 1em;
+.offer-avatar {
 }
-
+.accordion-toggle {
+	margin: 0;
+	padding: 0;
+}
 .accordion-toggle span {
 	color: black;
 }
