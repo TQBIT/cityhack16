@@ -13,9 +13,26 @@
 	<!-- bootstrap css & JS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- google maps API -->
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
-	<script src="../main.js"></script>
+	<script async src="../main.js"></script>
+	<script>
+		var latitude = -27.4524289;
+		var longitude = 153.0359216;
+		function initMap() {
+			var target = {lat: latitude, lng: longitude};
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 16,
+				center: target
+			});
+			var marker = new google.maps.Marker({
+				position: target,
+				map: map
+			});
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYT8Hwopd68rBTsvKjJ4Of75aQLQz1inM&callback=initMap"></script>
 	<title>Serendipity - Offers</title>
 </head>
 <body>
@@ -67,13 +84,16 @@
 							<strong>End Date: </strong><span class="event-end">26/11/2016 19:00</span>
 						</div>
 						<div class="col-xs-12">
-							<img class="offer-image col-xs-10" src="http://placehold.it/300x200/" alt="event-image">
+							<img class="offer-image" src="http://placehold.it/300x100/" alt="event-image">
 						</div>
-						<!-- map to be inserted -->
 						<!-- accept -->
-						<span class="glyphicon glyphicon-ok-sign text-right"></span>
-						<!-- dismiss -->
-						<span class="glyphicon glyphicon-remove-sign text-right"></span>
+						<div id="map">
+						</div>
+						<div class="col-xs-12">
+							<span class="glyphicon glyphicon-ok-sign text-right"></span>
+							<!-- dismiss -->
+							<span class="glyphicon glyphicon-remove-sign text-right"></span>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -125,6 +125,11 @@ input[type="submit"] {
 	width: 100%;
 	margin: 1rem auto;
 }
+#map {
+	height: 26em;
+	width: 26em;
+	margin: 0 auto;
+}
 .accordion-toggle {
 	margin: 0;
 	padding: 0;
