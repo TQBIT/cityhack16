@@ -66,9 +66,6 @@ label {
 }
 
 /* login/registration/offer creation pages */
-input[type="datetime-local"] {
-	width: 80%;
-}
 
 input[name="OfferAddress"] {
 	width: 72%;
