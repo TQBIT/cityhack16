@@ -24,8 +24,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		//for each in the class of svg 'offers'
 		//
-        offer239.style.transform = "rotate("+ 45 +"deg)";
-
+		//
+		var offers = getElementByClassName('offer');
+		for(l=0;l<length.offers;l++) {
+        	offers[l].style.transform = "rotate("+ dir +"deg)";
+		}
 		getLocation();
     }
 });
