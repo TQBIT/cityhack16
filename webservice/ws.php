@@ -20,6 +20,23 @@
 			} else {
 				print('Invalid fields.');
 			}
+				break;
+			
+		case "login":
+			if(isset($_GET['email']) && isset($_GET['password'])) {
+				$result = $core->login($_GET['email'], $_GET['password']);
+				$result = json_decode($result);
+				var_dump($result);
+			} else {
+				print('Invalid fields.');
+			}
+			break;
+		case "checkLogin":
+			if($core->isLogged()) {
+				print('logged');
+			} else {
+				print('not Logged');
+			}
 			break;
 	}
 ?>
