@@ -40,7 +40,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="wrapper" id="request_form">
 			<form method="POST" onsubmit="return false">
 				<input type="hidden" name="OID" id="OID" placeholder="OFFER ID" value="">
@@ -48,6 +48,13 @@
 				<div class="field">
 					<input type="text" name="Offername" id="Offername" class="noicon" placeholder="OFFER NAME" value="">
 				</div>
+				<select name="OfferCategory">
+					<option value="">OFFER CATEGORY</option>
+					<option value="">Leisure</option>
+					<option value="">Recreation</option>
+					<option value="">Sport</option>
+					<option value="">Fun</option>
+				</select>
 				<div class="field">
 					<textarea class="noicon" form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea>
 				</div>

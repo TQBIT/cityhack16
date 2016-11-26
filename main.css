@@ -115,9 +115,9 @@ input[type="submit"] {
 .offer-avatar {
 }
 .offer-event {
-    margin-left: 0.5rem;
-    font-weight: bold;
-   
+	margin-left: 0.5rem;
+	font-weight: bold;
+
 }
 .accordion-toggle {
 	margin: 0;
@@ -127,13 +127,13 @@ input[type="submit"] {
 	color: black;
 }
 .glyphicon-star{
-    color:orange;
-    font-size:1.5rem;
+	color:orange;
+	font-size:1.5rem;
 }
 .glyphicon-star-empty{
-    color:goldenrod;
-    font-size:1.5rem;
-    margin-left:-0.3rem;
+	color:goldenrod;
+	font-size:1.5rem;
+	margin-left:-0.3rem;
 }
 .glyphicon-ok-sign {
 	color: green;
@@ -143,7 +143,7 @@ input[type="submit"] {
 	color: red;
 }
 .wrapper {
-	width:70%;
+	width:90%;
 	margin:0 auto;
 	padding:0px;
 	margin-top:15px;
@@ -154,10 +154,10 @@ input[type="submit"] {
 	align-items: center;
 	background-color: #93A6BA;
 	line-height: 4rem;
-	margin: 4%;
+	margin: 4% 0;
 }
 
-.field input, .field textarea {
+.field input, .field textarea, .field select {
 	background-color: #93A6BA;
 	outline:none;
 	border:none;
@@ -176,6 +176,6 @@ input[type="submit"] {
 }
 /*submit button*/
 #accept_submit{
-    background-color: #0C2243;
-    color: white;
+	background-color: #0C2243;
+	color: white;
 }
