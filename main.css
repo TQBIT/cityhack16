@@ -46,6 +46,10 @@ a {
 	margin: 3rem;
 }
 
+.navbar-brand img {
+	display: inline-block;
+}
+
 .container {
 	text-align: center;
 }
