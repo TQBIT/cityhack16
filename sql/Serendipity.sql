@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2016 at 01:28 AM
+-- Generation Time: Nov 26, 2016 at 01:59 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -30,6 +30,17 @@ CREATE TABLE `category` (
   `CatID` int(11) NOT NULL,
   `CatDesc` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`CatID`, `CatDesc`) VALUES
+(1, 'Sport'),
+(2, 'Food'),
+(3, 'Transport'),
+(4, 'Lodging'),
+(5, 'Coffee');
 
 -- --------------------------------------------------------
 
@@ -89,9 +100,18 @@ CREATE TABLE `request` (
 CREATE TABLE `user` (
   `UID` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(128) NOT NULL,
   `UserName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`UID`, `email`, `password`, `UserName`) VALUES
+(1, 'dheesigns@gmail.com', 'password', 'haidee'),
+(2, 'ruqaiya.girach@yahoo.com.au', 'password', 'ruqaiya'),
+(3, 'jordanfischer97@gmail.com', 'password', 'jordan');
 
 --
 -- Indexes for dumped tables
@@ -141,7 +161,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `offer`
 --
@@ -161,7 +181,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
