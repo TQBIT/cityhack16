@@ -15,21 +15,44 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYT8Hwopd68rBTsvKjJ4Of75aQLQz1inM"></script>
 	<title>Serendipity - Create Event</title>
 	<script>
+		var lat, long;
+		function storeResult(result) {
+			lat = result[0];
+			long = result[1];
+		}
+
+		function getLatLong(address) {
+			var geocoder = new google.maps.Geocoder();
+			var result = [];
+
+			if (geocoder) {
+				geocoder.geocode( { 'address': address, 'region': 'uk' }, function(results, status) {
+					if (status == google.maps.GeocoderStatus.OK) {
+						result[0] = results[0].geometry.location.lat();
+						result[1] = results[0].geometry.location.lng();
+					} else {
+						result = "Unable to find address: " + status;
+					}
+					storeResult(result);
+				});
+			}
+		}
+
 		function createOffer() {
 			var OfferName = document.getElementsByName('OfferName')[0].value;
 			var OfferDesc = document.getElementsByName('OfferDesc')[0].value;
 			var StartDuration = document.getElementsByName('StartDuration')[0].value;
-			alert(StartDuration);
 			var EndDuration = document.getElementsByName('EndDuration')[0].value;
 			var CatID = document.getElementsByName('CatID')[0].value;
 			var OfferAddress = document.getElementsByName('OfferAddress')[0].value;
-			var OfferLat = 1;
-			var OfferLong = 1;
 			var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
 			var ImageURL = '';
-			//var ImageURL = document.getElementsByName('ImageURL')[0].value;
+			getLatLong('2146 sandgate road');
+			var OfferLat = lat;
+			var OfferLong = long;
 			
 			$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
 				alert(data);
@@ -103,7 +126,7 @@
 					<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="createOffer();">
 				</div>
 			</form>
-</div>
-</div>
+		</div>
+	</div>
 </body>
 </html>
