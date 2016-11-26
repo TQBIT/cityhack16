@@ -38,5 +38,8 @@
 				print('not Logged');
 			}
 			break;
+		case "search":
+			print $core->search();
+			break;
 	}
 ?>

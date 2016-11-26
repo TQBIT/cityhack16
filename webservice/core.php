@@ -1,5 +1,15 @@
 <?php 
 	session_start();
+	 function Haversine($start, $finish) {
+	$theta = $start[1] - $finish[1];
+
+	$distance = (sin(deg2rad($start[0])) * sin(deg2rad($finish[0]))) + (cos(deg2rad($start[0])) * cos(deg2rad($finish[0])) * cos(deg2rad($theta))); 
+	$distance = acos($distance); 
+	$distance = rad2deg($distance); 
+	$distance = $distance * 60 * 1.1515;
+
+	return round($distance, 2);
+}
 	class core {
 		public function __construct() {
 			$this->pdo = new  PDO('mysql:dbname=serendipity;host=127.0.0.1', 'root', '');
@@ -24,6 +34,33 @@
 			} else {
 				return false;
 			}
+		}
+		
+		//public function search($lat, $lang, $radius, $cat) {
+		public function search() {
+			
+			$this->address = [-27.455575,153.036710];
+
+			$distancePerDegree= 111.045; //km. 63 for miles
+			$withinDistance=1000;
+
+			$latRange=[
+				$this->address[0]-$withinDistance/$distancePerDegree,
+				$this->address[0]+$withinDistance/$distancePerDegree
+			];
+
+			$lonRange=[
+				$this->address[1]-$withinDistance/abs(cos(deg2rad($this->address[0]))*$distancePerDegree),
+				$this->address[1]+$withinDistance/abs(cos(deg2rad($this->address[0]))*$distancePerDegree)
+			];
+
+			$stmt = $this->pdo->prepare("SELECT `OfferName`, `OfferLat`, `OfferLong` FROM `offer` ");
+			$stmt->execute();
+			$points = $stmt->fetchAll();
+			//return var_dump($points);
+			$points = array_filter($points, function($p) {
+				return Haversine($this->address, [$p->OfferLat, $p->OfferLong])<=$withinDistance;
+			});
 		}
 		
 		public function register($username, $email, $password, $confirmPassword) {
