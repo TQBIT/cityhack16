@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   width="512px"
+   height="512px"
+   viewBox="0 0 512 512"
+   enable-background="new 0 0 512 512"
+   xml:space="preserve"
+   sodipodi:docname="compass2.svg"
+   inkscape:version="0.92pre2 r"><metadata
+     id="metadata91"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
+     id="defs89" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1571"
+     id="namedview87"
+     showgrid="false"
+     inkscape:zoom="2.4589844"
+     inkscape:cx="161.44877"
+     inkscape:cy="256"
+     inkscape:window-x="0"
+     inkscape:window-y="55"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" /><path
+     d="M 288,34.375 V 0 H 224 V 34.375 C 106.625,50.063 16,150.313 16,272 16,404.563 123.438,512 256,512 388.562,512 496,404.562 496,272 496,150.313 405.375,50.063 288,34.375 Z M 272,479.188 V 448 h -32 v 31.188 C 138.063,471.375 56.625,389.906 48.813,288 H 80 V 256 H 48.813 C 57.031,148.781 146.719,64 256,64 365.281,64 454.969,148.781 463.188,256 H 432 v 32 h 31.188 C 455.375,389.906 373.906,471.375 272,479.188 Z M 239.688,160 H 224 V 80 h 20.406 c 0,0 23.438,44.375 28.094,55.438 V 80 H 288 v 80 h -18.375 c 0,0 -26.125,-49.75 -29.938,-59.125 V 101 160 Z"
+     id="path84"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccssscccccccccscccccccccccccccccc"
+     style="fill:#023b5b;fill-opacity:1" /></svg>
