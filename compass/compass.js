@@ -53,10 +53,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("lat").innerHTML = "Geolocation is not supported by this browser.";
         }
     }
+
     function showPosition(position) {
-        document.getElementById("lat").innerHTML = "Latitude: " + position.coords.latitude;
-        document.getElementById("long").innerHTML = "Longitude: " + position.coords.longitude; 
+        document.getElementById("lat").value = position.coords.latitude;
+        document.getElementById("long").value = position.coords.longitude; 
         document.getElementById("acc").innerHTML = "Accuracy: " + position.coords.accuracy; 
         document.getElementById("elevation").innerHTML = "Elevation: " + position.coords.altitude; 
         document.getElementById("heading").innerHTML = "Heading: " + position.coords.heading; 
+    }
+
+    function submitASearch() {
+        var searchURL = '../webservice/ws.php?action=search&lat=' + lat.value + '&lang=' + long.value + '&radius=' + radius.value;
+        console.log(searchURL);
+        $('#search_output').load(searchURL, function(output) {
+            populateResults(output);
+        });
+    }
+
+    function populateResults() {
+
+
     }
