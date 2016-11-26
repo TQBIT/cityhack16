@@ -1,3 +1,41 @@
-.navbar {
-	
+body {
+	background: linear-gradient(to right, #023B5B, #0090CA);
+}
+
+h1 {
+	font-size: 4em;
+	text-align: center;
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+.fa-times-circle {
+	color: red;
+}
+
+.fa-check-circle {
+	color: green;
+}
+
+
+/* bootstrap navbar styles */
+.navbar-default {
+	background-color: #0C2243;
+	border-color: #0C2243;
+	color: white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: white;
+}
+
+.navbar-toggle {
+	border-style: none;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: white;
 }
