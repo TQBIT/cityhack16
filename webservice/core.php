@@ -18,6 +18,22 @@
 			return $string;
 		}
 		
+		public function createOffer($name, $desc, $lat, $long, $startDate, $endDate, $limit, $catID, $address, $url) {
+			if($this->isLogged()) {
+				$stmt = $this->pdo->prepare("INSERT INTO `offer` (`OfferName`, `UID`, `OfferDesc`, `StartDuration`, `EndDuration`, `CatID`, `OfferAddress`, `OfferLat`, `OfferLong`, `Status`, `OfferLimit`, `ImageURL`) 
+				VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				$stmt->execute(array($name, $_SESSION['UID'], $desc, $startDate, $endDate, $catID, $address, $lat, $long, 'open', $limit, $url));
+				return json_encode(array(1, 'success', 'Offer Created', $_SESSION['UID']));
+			} else {
+				 return json_encode(array(0, 'fail', 'User must be logged in'));
+			}
+		}
+		
+		public function logout() {
+			session_destroy();
+			return json_encode(array(1, 'success', 'successfully logged out'));
+		}
+		
 		public function isLogged() {
 			if(isset($_SESSION['UID'])) {
 				return true;
