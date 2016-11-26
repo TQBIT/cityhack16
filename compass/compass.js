@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     }
 
+
     function showPosition(position) {
         document.getElementById("lat").value = position.coords.latitude;
         document.getElementById("long").value = position.coords.longitude; 
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     function submitASearch() {
-        var searchURL = '../webservice/ws.php?action=search&lat=' + lat.value + '&lang=' + long.value + '&radius=' + radius.value;
+        var searchURL = '../webservice/ws.php?action=search2&lat=' + lat.value + '&lang=' + long.value + '&radius=' + radius.value;
         console.log(searchURL);
         $('#search_output').load(searchURL, function(output) {
             populateResults(output);
