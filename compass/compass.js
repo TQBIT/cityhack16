@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 });
 
-
     function getLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -61,4 +60,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("elevation").innerHTML = "Elevation: " + position.coords.altitude; 
         document.getElementById("heading").innerHTML = "Heading: " + position.coords.heading; 
     }
-
