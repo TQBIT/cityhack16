@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2016 at 01:59 AM
+-- Generation Time: Nov 26, 2016 at 03:00 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -28,19 +28,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category` (
   `CatID` int(11) NOT NULL,
-  `CatDesc` varchar(150) NOT NULL
+  `CatDesc` varchar(150) NOT NULL,
+  `colour` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`CatID`, `CatDesc`) VALUES
-(1, 'Sport'),
-(2, 'Food'),
-(3, 'Transport'),
-(4, 'Lodging'),
-(5, 'Coffee');
+INSERT INTO `category` (`CatID`, `CatDesc`, `colour`) VALUES
+(1, 'Active', 'red'),
+(2, 'Food and Drink', 'brown'),
+(3, 'Transport', 'yellow'),
+(4, 'Lodging', 'blue'),
+(6, 'Leisure', 'green');
 
 -- --------------------------------------------------------
 
@@ -59,10 +60,18 @@ CREATE TABLE `offer` (
   `OfferAddress` varchar(1024) NOT NULL,
   `OfferLat` bigint(20) NOT NULL,
   `OfferLong` bigint(20) NOT NULL,
-  `Status` varchar(10) NOT NULL,
+  `Status` enum('open','closed') NOT NULL DEFAULT 'open',
   `OfferLimit` int(11) NOT NULL,
   `ImageURL` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `offer`
+--
+
+INSERT INTO `offer` (`OID`, `UID`, `OfferName`, `OfferDesc`, `StartDuration`, `EndDuration`, `CatID`, `OfferAddress`, `OfferLat`, `OfferLong`, `Status`, `OfferLimit`, `ImageURL`) VALUES
+(1, 3, 'Dinner at Ribs and Rumps.', 'Help! Friend bailed and have free ticket for dinner and need someone to come along with me.', '2016-11-28 18:30:00', '2016-11-28 20:30:00', 2, '', -27, 153, 'open', 1, 'https://media-cdn.tripadvisor.com/media/photo-s/03/d8/25/10/ribs-and-rumps.jpg'),
+(2, 1, 'Need Cycling companions', 'Usually cycle Sunday mornings through New Farm, starting at Teneriffe Park. Want to join me?', '2016-11-30 09:00:00', '2016-12-12 10:00:00', 1, '', -27, 153, 'open', 3, 'http://www.weekendnotes.com/images/teneriffe-park.JPG');
 
 -- --------------------------------------------------------
 
@@ -87,7 +96,7 @@ CREATE TABLE `request` (
   `RID` int(11) NOT NULL,
   `OID` int(11) NOT NULL,
   `UID` int(11) NOT NULL,
-  `Status` char(1) NOT NULL,
+  `Status` enum('accepted','rejected','waiting') NOT NULL DEFAULT 'waiting',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -111,7 +120,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`UID`, `email`, `password`, `UserName`) VALUES
 (1, 'dheesigns@gmail.com', 'password', 'haidee'),
 (2, 'ruqaiya.girach@yahoo.com.au', 'password', 'ruqaiya'),
-(3, 'jordanfischer97@gmail.com', 'password', 'jordan');
+(3, 'jordanfischer97@gmail.com', 'password', 'jordan'),
+(4, 'geoffrey.lai1@gmail.com', 'password', 'geoffrey');
 
 --
 -- Indexes for dumped tables
@@ -161,12 +171,12 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `offer`
 --
 ALTER TABLE `offer`
-  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `rating`
 --
@@ -181,7 +191,7 @@ ALTER TABLE `request`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
