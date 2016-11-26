@@ -26,7 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="#">Serendipity</a>
+				<a class="navbar-brand"><img style="max-width: 100px; margin-top: -5px;" src="../img/serendipity_logo-PNG.png" alt="serendipity"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
@@ -38,12 +38,16 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container-fluid">
-		<form method="POST" action="" id="login_form">
+	<div class="container">
+		<img class="logo-image" src="../img/serendipity_logo-PNG.png" alt="serendipity">
+		<form method="POST" id="login_form">
+			<label><span class="glyphicon glyphicon-user"></span></label>
 			<input type="email" name="email" id="email" placeholder="EMAIL"><br/>
+			<label><span class="glyphicon glyphicon-lock"></span></label>
 			<input type="password" name="password" id="password" placeholder="PASSWORD"><br/>
-			<input type="submit" name="login_submit" id="login_submit" value="LOGIN">
-			<a href="register.php">Not a member?</a>
+			<input type="submit" name="login_submit" id="login_submit" value="LOGIN"><br/>
+			<a href="register.html">Not a member?</a>
+			<i class="fa fa-key"></i>
 		</form>
 	</div>
 </div>

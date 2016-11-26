@@ -36,6 +36,51 @@ a {
 	border-style: none;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
 	color: white;
+}
+
+.logo-image {
+	max-width: 70%;
+	margin: 3rem;
+}
+
+.container {
+	text-align: center;
+}
+
+/* login page */
+input[type="email"], input[type="password"] {
+	background-color: #93A6BA;
+	color: white;
+	border-style: none;
+	margin: 0.5rem;
+	width: 80%;
+	line-height: 3rem;
+	font-size: 1.5em;
+	padding: 1%;
+	font-weight: lighter;
+}
+
+.glyphicon-user, .glyphicon-lock {
+	font-size: 1.5em;
+	color: white;
+}
+
+input[type="submit"] {
+	width: 85%;
+	margin: 1rem 0;
+	line-height: 3rem;
+}
+::-webkit-input-placeholder {
+	color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: white;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+	color: white;  
+}
+:-ms-input-placeholder {  
+	color: white;  
 }
