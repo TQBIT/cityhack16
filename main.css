@@ -67,8 +67,8 @@ label {
 
 /* login/registration/offer creation pages */
 
-input[name="OfferAddress"] {
-	width: 72%;
+input, textarea {
+	width: 100%;
 }
 .noicon {
 	margin-left: 3%;
@@ -164,7 +164,7 @@ input[type="submit"] {
 	color: white;
 }
 
-.field select {
+.field select, input[type="datetime-local"] {
 	height: 4rem;
 	width: 100%;
 }
