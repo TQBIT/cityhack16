@@ -67,7 +67,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 	font-weight: lighter;
 }
 
-.glyphicon-user, .glyphicon-lock {
+.glyphicon-user, .glyphicon-lock, .glyphicon-envelope {
 	font-size: 1.5em;
 	color: white;
 }
