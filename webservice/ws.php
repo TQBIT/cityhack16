@@ -15,8 +15,7 @@
 		case "register":
 			if(isset($_GET['username']) && isset($_GET['password']) && isset($_GET['confirmPassword']) && isset($_GET['email'])) {
 				$result = $core->register($_GET['username'], $_GET['email'], $_GET['password'], $_GET['confirmPassword']);
-				$result = json_decode($result);
-				var_dump($result);
+				print $result;
 			} else {
 				print('Invalid fields.');
 			}
@@ -25,10 +24,33 @@
 		case "login":
 			if(isset($_GET['email']) && isset($_GET['password'])) {
 				$result = $core->login($_GET['email'], $_GET['password']);
-				$result = json_decode($result);
-				var_dump($result);
+				print $result;
 			} else {
 				print('Invalid fields.');
+			}
+			break;
+			
+		case "acceptRequest":
+			if(isset($_GET['rid'])) {
+				print $core->acceptRequesr($_GET['rid']);
+			}
+			break;
+		
+		case "getRating":
+			if(isset($_GET['uid'])) {
+				print $core->getRating($_GET['uid']);
+			}
+			break;
+			
+		case "rateUser":
+			if(isset($_GET['uid']) && isset($_GET['oid']) && isset($_GET['rating'])) {
+				print $core->setRating($_GET['uid'], $_GET['oid'], $_GET['rating']);
+			}
+			break;
+		
+		case "rejectRequest":
+			if(isset($_GET['rid'])) {
+				print $core->rejectRequest($_GET['rid']);
 			}
 			break;
 		case "checkLogin":
@@ -56,6 +78,21 @@
 				print('invalid fields');
 			}
 			break;
+		case "offerDetails":
+			if(isset($_GET['oid'])) {
+				print $core->offerDetails($_GET['oid']);
+			}
+			break;
+			
+		case "listCategories":
+			print $core->listCategories();
+			break;
+		case "requestOffer":
+			if(isset($_GET['oid'])) {
+				print $core->requestOffer($oid);
+			}
+			break;
+		
 		case "logout":
 			print $core->logout();
 			break;

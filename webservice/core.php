@@ -29,6 +29,78 @@
 			}
 		}
 		
+		public function offerDetails($oid) {
+			if(is_numeric($oid)) {
+				$stmt = $this->pdo->prepare("SELECT * FROM `offer` WHERE `OID` = ?");
+				$stmt->execute(array($oid));
+				$offer = $stmt->fetch();
+				if(!empty($offer)) {
+					return json_encode($offer);
+				} else {
+					return json_encode(array(0, 'fail', 'There was no offer found'));
+				}
+			}
+		}
+		
+		public function showRequestees($oid) {
+			$stmt = $this->pdo->prepare("SELECT * FROM `offer` WHERE `OID` = ? AND `UID` = ?");
+			$stmt->execute(array($oid, $_SESSION['UID']));
+			$offer = $stmt->fetch();
+			
+			if(!empty($offer)) {
+				$stmt = $this->pdo->prepare("SELECT * FROM `request` WHERE `OID` = ?");
+				$stmt->execute(array($oid));
+				$requesters = $stmt->fetchAll();
+				return json_encode($requesters);
+			}
+			else {
+				return json_encode(array(0, 'error', 'An error occurred.'));
+			}
+			
+		}
+		
+		public function getRating($uid) {
+			$stmt = $this->pdo->prepare("SELECT * FROM `rating` WHERE `UID` = ?");
+			$stmt->execute(array($uid));
+			$rating = $stmt->fetch();
+			return json_encode($rating);
+		}
+		
+		public function setRating($uid, $oid, $rating) {
+			$stmt = $this->pdo->prepare("INSERT INTO `rating` (`UID`, `OID`, `rating`) VALUES (?, ?, ?)");
+			$stmt->execute(array($uid, $oid, $rating));
+			return json_encode(array(1, 'success'));
+		}
+		
+		public function acceptRequesr($rid) {
+			$stmt = $this->pdo->prepare("UPDATE `request` SET `status` = 'accepted' WHERE `RID` = ?");
+			$stmt->execute(array($rid));
+			return json_encode(array(1, 'success'));
+		}
+		
+		public function rejectRequest($rid) {
+			$stmt = $this->pdo->prepare("UPDATE `request` SET `status` = 'rejected' WHERE `RID` = ?");
+			$stmt->execute(array($rid));
+			return json_encode(array(1, 'success'));
+		}
+		
+		public function listCategories() {
+			$stmt = $this->pdo->prepare("SELECT * FROM `category`");
+			$stmt->execute();
+			$categories = $stmt->fetchAll();
+			return json_encode($categories);
+		}
+		
+		public function requestOffer($oid) {
+			if($this->isLogged()) {
+				$uid = $_SESSION['UID'];
+				$time = time();
+				$stmt = $this->pdo->prepare("INSERT INTO `request` (`OID`, `UID`, `Status`, `timestamp`) VALUES (?, ?, ?, ?)");
+				$stmt->execute(array($oid, $uid, 'pending', $time));
+				return json_encode(array(1, 'success', 'successfully requested an offer.'));
+			}
+		}
+		
 		public function logout() {
 			session_destroy();
 			return json_encode(array(1, 'success', 'successfully logged out'));
@@ -144,7 +216,7 @@
 					return json_encode(array(0, 'error', $this->errors));
 				}
 			} else {
-				return json_encode(array(0, 'error'));
+				return json_encode(array(0, 'error', 'All fields required'));
 			}
 		}
 	}

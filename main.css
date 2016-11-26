@@ -11,6 +11,11 @@ h1 {
 
 a {
 	color: white;
+	margin-left: 2.5rem;
+}
+
+label {
+	color: white;
 }
 
 .fa-times-circle {
@@ -42,8 +47,9 @@ a {
 }
 
 .logo-image {
-	max-width: 70%;
-	margin: 3rem;
+	max-width: 60%;
+	margin: 3rem 0 2.5rem 2.5rem;
+  
 }
 
 .navbar-brand img {
@@ -54,8 +60,8 @@ a {
 	text-align: center;
 }
 
-/* login page */
-input[type="text"], input[type="email"], input[type="password"] {
+/* login/registration/offer creation pages */
+input[type="text"], input[type="email"], input[type="password"], textarea, input[type="datetime-local"] {
 	background-color: #93A6BA;
 	color: white;
 	border-style: none;
@@ -67,18 +73,31 @@ input[type="text"], input[type="email"], input[type="password"] {
 	font-weight: lighter;
 }
 
-.glyphicon-user, .glyphicon-lock, .glyphicon-envelope {
+input[type="datetime-local"] {
+	width: 80%;
+}
+
+input[name="OfferAddress"] {
+	width: 72%;
+}
+
+.glyphicon {
 	font-size: 1.5em;
 	color: white;
 }
-
+.glyphicon-lock{
+	margin-left:0.2rem;
+}
 input[type="submit"] {
-	width: 85%;
+	width: 80%;
 	margin: 1rem 0;
+	margin-left: 2.5rem;
 	font-weight: bolder;
 	font-size: 1.5em;
 	line-height: 3rem;
 }
+
+
 ::-webkit-input-placeholder {
 	color: white;
 }
@@ -90,4 +109,30 @@ input[type="submit"] {
 }
 :-ms-input-placeholder {  
 	color: white;  
+}
+/*Page Title*/
+.page_title{
+	font-size: 1.7rem;
+	font-weight: bolder;
+	margin-top: 1rem;
+}
+
+/* offers page*/
+.offer {
+	background: linear-gradient(to right, #063555, #095b82);
+}
+.accordion-toggle {
+	margin-left: 1em;
+}
+
+.accordion-toggle span {
+	color: black;
+}
+
+.glyphicon-ok-sign {
+	color: green;
+}
+
+.glyphicon-remove-sign {
+	color: red;
 }
