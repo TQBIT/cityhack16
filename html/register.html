@@ -16,7 +16,7 @@
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
 	<title>Serendipity</title>
-    		<script>
+	<script>
 		function register() {
 			var username = document.getElementsByName('username')[0].value;
 			var email = document.getElementsByName('email')[0].value;
@@ -24,15 +24,15 @@
 			var confirmPassword = document.getElementsByName('confirmPassword')[0].value;
 			
 			$.get( "../webservice/ws.php?action=register&email=" + email + "&password=" + password + "&username=" + username + "&confirmPassword=" + confirmPassword, function( data ) {
-			 data = JSON.parse(data);
-			  if(data[0] == 1) {
-				console.log('successfully registered');
-			 } else {
-				console.log(data[2]);
-			 }
+				data = JSON.parse(data);
+				if(data[0] == 1) {
+					console.log('successfully registered');
+				} else {
+					console.log(data[2]);
+				}
 			});
 		}
-		</script>
+	</script>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -49,27 +49,40 @@
 				<ul class="nav navbar-nav">
 					<li><a href="../html/login.html">Login</a></li>
 					<li class="active"><a href="#">Sign Up</a></li>
-					<li><a href="createEvent.html">Make an Event</a></li> 
-					<li><a href="events.html">Events</a></li> 
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<div class="container">
 		<img class="logo-image" src="../img/serendipity_logo-PNG.png" alt="serendipity">
-		<form onsubmit="return false">
-			<label><span class="glyphicon glyphicon-user"></span></label>
-			<input type="text" name="username" id="UserName" placeholder="USERNAME"><br/>
-			<label><span class="glyphicon glyphicon-envelope"></span></label>
-			<input type="email" name="email" id="email" placeholder="EMAIL"><br/>
-			<label><span class="glyphicon glyphicon-lock"></span></label>
-			<input type="password" name="password" id="password" placeholder="PASSWORD"><br/>
-			<label><span class="glyphicon glyphicon-lock"></span></label>
-			<input type="password" name="confirmPassword" id="confirmPassword" placeholder="CONFIRM PASSWORD"><br/><br/><br/>
-			<input type="submit" name="register_submit" id="register_submit" value="REGISTER" onclick="register()"><br/>
-        </form>
-			<a href="login.html">Already a Member?</a>
 		
-</div>
+		
+		<div class="wrapper">
+			<form method="POST" onsubmit="return false">
+				<div class="field">
+					<label for="UserName" class="icon glyphicon glyphicon-user"></label>
+					<input type="text" id="UserName" name="username" placeholder="USERNAME" />
+				</div>
+				<div class="field">
+					<label for="email" class="icon glyphicon glyphicon-envelope"></label>
+					<input type="text" id="email" name="email" placeholder="EMAIL" />
+				</div>
+				<div class="field">
+					<label for="password" class="icon glyphicon glyphicon-lock"></label>
+					<input type="password" id="password" name="password" placeholder="PASSWORD" />
+				</div>	
+				<div class="field">
+					<label for="confirmPassword" class="icon glyphicon glyphicon-lock"></label>
+					<input type="password" id="confirmPassword" name="confirmPassword" placeholder="CONFIRM PASSWORD" />
+				</div>
+				<div class="field">
+					<input type="submit" name="register_submit" id="register_submit" value="REGISTER" onclick="register()" />
+				</div>
+			</form>
+			<br />
+			<a href="login.html">Already a Member?</a>
+		</div>
+		
+	</div>
 </body>
 </html>

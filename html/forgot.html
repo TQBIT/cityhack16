@@ -40,11 +40,19 @@
 	</nav>
 	<div class="container">
 		<img class="logo-image" src="../img/serendipity_logo-PNG.png" alt="serendipity">
-		<form method="POST" action="" id="forgot_password_form">
-			<label><span class="glyphicon glyphicon-user"></span></label>
-			<input type="email" name="email" id="email" placeholder="EMAIL"><br/>
+		<div class="wrapper">
+			<form method="POST" onsubmit="return false">
+				<div class="field">
+					<label class="icon glyphicon glyphicon-user"></label>
+					<input type="text" name="email" id="email" placeholder="EMAIL"><br/>
+				</div>
+				<div class="field">
+					<input type="submit" name="forgotten_submit" id="forgotten_submit" value="SEND EMAIL" />
+				</div>
+			</form>
+			<br />
 			<a href="login.html">Remembered Your Password?</a>
-		</form>
+		</div>
 	</div>
 </div>
 </body>
