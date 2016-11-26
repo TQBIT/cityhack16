@@ -65,7 +65,6 @@ label {
 	display: inline-block;
 }
 
-
 /* login/registration/offer creation pages */
 input[type="datetime-local"] {
 	width: 80%;
@@ -73,6 +72,9 @@ input[type="datetime-local"] {
 
 input[name="OfferAddress"] {
 	width: 72%;
+}
+.noicon {
+	margin-left: 3%;
 }
 
 .glyphicon {
@@ -142,7 +144,7 @@ input[type="submit"] {
 	align-items: center;
 	background-color: #93A6BA;
 	line-height: 5rem;
-	margin: 4%;
+	margin: 1rem;
 }
 
 .field input, .field textarea {
