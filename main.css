@@ -11,7 +11,7 @@ h1 {
 
 a {
 	color: white;
-    margin-left: 2.5rem;
+	margin-left: 2.5rem;
 }
 
 span {
@@ -49,7 +49,7 @@ span {
 .logo-image {
 	max-width: 60%;
 	margin: 3rem 0 2.5rem 2.5rem;
-  
+	
 }
 
 .navbar-brand img {
@@ -73,25 +73,21 @@ input[type="text"], input[type="email"], input[type="password"], textarea, input
 	font-weight: lighter;
 }
 
-<<<<<<< Updated upstream
 input[type="datetime-local"] {
 	width: 70%;
 }
 
-.glyphicon {
-=======
 .glyphicon-user,.glyphicon-lock, .glyphicon-envelope {
->>>>>>> Stashed changes
 	font-size: 1.5em;
 	color: white;
 }
 .glyphicon-lock{
-    margin-left:0.2rem;
+	margin-left:0.2rem;
 }
 input[type="submit"] {
 	width: 80%;
 	margin: 1rem 0;
-    margin-left: 2.5rem;
+	margin-left: 2.5rem;
 	font-weight: bolder;
 	font-size: 1.5em;
 	line-height: 3rem;
