@@ -17,16 +17,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("direction").innerHTML = Math.ceil(dir);
         
         // Rotate the disc of the compass.
-        var compassDisc = document.getElementById("compassDiscImg");
-        compassDisc.style.webkitTransform = "rotate("+ dir +"deg)";
-        compassDisc.style.MozTransform = "rotate("+ dir +"deg)";
-        compassDisc.style.transform = "rotate("+ dir +"deg)";
+        var compass = document.getElementById("compassDisk");
+        compass.style.webkitTransform = "rotate("+ dir +"deg)";
+        compass.style.MozTransform = "rotate("+ dir +"deg)";
+        compass.style.transform = "rotate("+ dir +"deg)";
 
 		//for each in the class of svg 'offers'
 		//
 		//
-		var offers = getElementByClassName('offer');
+		var offers = document.getElementsByClassName('offer');
 		for(l=0;l<length.offers;l++) {
+        	offers[l].style.webkitTransform = "rotate("+ dir +"deg)";
+        	offers[l].style.MozTransform = "rotate("+ dir +"deg)";
         	offers[l].style.transform = "rotate("+ dir +"deg)";
 		}
 		getLocation();

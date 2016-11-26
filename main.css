@@ -149,7 +149,7 @@ input[type="submit"] {
 	line-height:3rem;
 	font-size:1.5rem;
 }
-input[type="text"], input[type="password"], textarea {
+input[type="text"], input[type="password"], textarea, input[type="datetime-local"] {
 	padding:1%;
 	background-color: #93A6BA;
 	border:none;
