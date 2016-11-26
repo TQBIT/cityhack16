@@ -17,21 +17,22 @@
 	<link rel="stylesheet" type="text/css" href="../main.css">
 	<title>Serendipity - Create Event</title>
 	<script>
-		function createEvent() {
+		function createOffer() {
 			var OfferName = document.getElementsByName('OfferName')[0].value;
-			var UID = document.getElementsByName('UID')[0].value;
 			var OfferDesc = document.getElementsByName('OfferDesc')[0].value;
 			var StartDuration = document.getElementsByName('StartDuration')[0].value;
+			alert(StartDuration);
 			var EndDuration = document.getElementsByName('EndDuration')[0].value;
 			var CatID = document.getElementsByName('CatID')[0].value;
 			var OfferAddress = document.getElementsByName('OfferAddress')[0].value;
-			var OfferLat = document.getElementsByName('OfferLat')[0].value;
-			var OfferLong = document.getElementsByName('OfferLong')[0].value;
-			var Status = document.getElementsByName('Status')[0].value;
+			var OfferLat = 1;
+			var OfferLong = 1;
 			var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
-			var ImageURL = document.getElementsByName('ImageURL')[0].value;
+			var ImageURL = '';
+			//var ImageURL = document.getElementsByName('ImageURL')[0].value;
 			
-			$.get( "../webservice/ws.php?action=register&OfferName=" + OfferName + "&UID=" + UID + "&OfferDesc=" + OfferDesc + "&StartDuration=" + StartDuration + "&EndDuration=" + EndDuration + "&CatID=" + CatID + "&OfferAddress=" + OfferAddress + "&OfferLat=" + OfferLat + "&OfferLong=" + OfferLong + "&Status=" + Status + "&OfferLimit=" + OfferLimit + "&ImageURL=" +ImageURL, function( data ) {
+			$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
+				alert(data);
 				data = JSON.parse(data);
 				if(data[0] == 1) {
 					console.log('Offer successfully created');
@@ -68,45 +69,40 @@
 	<div class="container-fluid">
 		<div class="wrapper" id="request_form">
 			<form onsubmit="return false">
-
-<!-- 				<div class="field">
-					<input type="text" name="UID" id="UID" placeholder="USER ID" value="">
+				<div class="field">
+					<input type="text" name="OfferName" id="Offername" class="noicon" placeholder="OFFER NAME" value="">
 				</div>
-			-->				<div class="field">
-			<input type="text" name="Offername" id="Offername" class="noicon" placeholder="OFFER NAME" value="">
-		</div>
-		<div class="field">
-			<Select class="noicon" name="offerCategory">
-				<option value="">OFFER CATEGORY</option>
-				<option value-"1">Active</option>
-				<option value-"2">Food and Drink</option>
-				<option value-"3">Transport</option>
-				<option value-"4">Lodging</option>
-				<option value-"5">Leisure</option>
-			</Select>
-		</div>  
-		<div class="field">
-			<textarea class="noicon" form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea>
-		</div>
-		<div class="field">
-			<label for="startDuration" class="icon glyphicon glyphicon-calendar"></label>
-			<input type="datetime-local" name="StartDuration" id="StartDuration" placeholder="OFFER START DURATION" value="">
-		</div>
-		<div class="field">
-			<label for="EndDuration" class="icon glyphicon glyphicon-calendar"></label>
-			<input type="datetime-local" name="EndDuration" id="EndDuration" placeholder="OFFER END DURATION" value="">
-		</div>
-		<div class="field">
-			<label for="OfferAddress" class="icon glyphicon glyphicon-map-marker"></label>
-			<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value="">
-		</div>
-		<div class="field">
-			<input type="text" name="OfferLimit" id="limit" placeholder="OFFER LIMIT" class="noicon" value="">
-		</div>
-		<div class="field">
-			<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="createEvent()">
-		</div>
-	</form>
+				<div class="field">
+					<Select name="CatID">
+						<option value="1">Sport</option>
+						<option value="2">Food and Drink</option>
+						<option value="3">Transport</option>
+						<option value="4">Lodging</option>
+						<option value="5">Leisure</option>
+					</Select>
+				</div>  
+				<div class="field">
+					<textarea class="noicon" form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea>
+				</div>
+				<div class="field">
+					<label for="startDuration" class="icon glyphicon glyphicon-calendar"></label>
+					<input type="datetime-local" name="StartDuration" id="StartDuration" placeholder="OFFER START DURATION" value="">
+				</div>
+				<div class="field">
+					<label for="EndDuration" class="icon glyphicon glyphicon-calendar"></label>
+					<input type="datetime-local" name="EndDuration" id="EndDuration" placeholder="OFFER END DURATION" value="">
+				</div>
+				<div class="field">
+					<label for="OfferAddress" class="icon glyphicon glyphicon-map-marker"></label>
+					<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value="">
+				</div>
+				<div class="field">
+					<input type="text" name="OfferLimit" id="limit" placeholder="OFFER LIMIT" class="noicon" value="">
+				</div>
+				<div class="field">
+					<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="createOffer();">
+				</div>
+			</form>
 </div>
 </div>
 </body>
