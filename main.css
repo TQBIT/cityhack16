@@ -164,6 +164,11 @@ input[type="submit"] {
 	color: white;
 }
 
+.field select {
+	height: 4rem;
+	width: 100%;
+}
+
 .field .glyphicon {
 	margin-left: 3%;
 	margin-right: 2%;
