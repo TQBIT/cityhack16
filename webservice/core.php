@@ -216,7 +216,7 @@
 					return json_encode(array(0, 'error', $this->errors));
 				}
 			} else {
-				return json_encode(array(0, 'error'));
+				return json_encode(array(0, 'error', 'All fields required'));
 			}
 		}
 	}
