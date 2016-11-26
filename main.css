@@ -13,6 +13,10 @@ a {
 	color: white;
 }
 
+span {
+	font-weight: lighter;
+}
+
 .fa-times-circle {
 	color: red;
 }
@@ -55,7 +59,7 @@ a {
 }
 
 /* login page */
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], textarea, input[type="datetime-local"] {
 	background-color: #93A6BA;
 	color: white;
 	border-style: none;
@@ -67,7 +71,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 	font-weight: lighter;
 }
 
-.glyphicon-user, .glyphicon-lock, .glyphicon-envelope {
+input[type="datetime-local"] {
+	width: 70%;
+}
+
+.glyphicon {
 	font-size: 1.5em;
 	color: white;
 }

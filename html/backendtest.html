@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha256-AAhU14J4Gv8bFupUUcHaPQfvrdNauRHMt+S4UVcaJb0=" crossorigin="anonymous"></script>
+		<script>
+			$.get( "../webservice/ws.php?action=register&email=jordanfischer977@gmail.com&password=test&username=jordann&confirmPassword=test", function( data ) {
+			 data = JSON.parse(data);
+			  if(data[0] == 1) {
+				console.log('successfully registered');
+			 } else {
+				console.log(data[2]);
+			 }
+			});
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>
