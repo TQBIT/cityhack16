@@ -49,7 +49,7 @@ span {
 .logo-image {
 	max-width: 60%;
 	margin: 3rem 0 2.5rem 2.5rem;
-	
+
 }
 
 .navbar-brand img {
@@ -77,13 +77,14 @@ input[type="datetime-local"] {
 	width: 70%;
 }
 
-.glyphicon-user,.glyphicon-lock, .glyphicon-envelope {
+.glyphicon {
 	font-size: 1.5em;
 	color: white;
 }
 .glyphicon-lock{
 	margin-left:0.2rem;
 }
+
 input[type="submit"] {
 	width: 80%;
 	margin: 1rem 0;
@@ -92,7 +93,6 @@ input[type="submit"] {
 	font-size: 1.5em;
 	line-height: 3rem;
 }
-
 
 ::-webkit-input-placeholder {
 	color: white;
