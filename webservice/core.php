@@ -34,7 +34,7 @@
 				$uid = $_SESSION['UID'];
 				$time = time();
 				$stmt = $this->pdo->prepare("INSERT INTO `request` (`OID`, `UID`, `Status`, `timestamp`) VALUES (?, ?, ?, ?)");
-				$stmt->execute(array($oid, $uid, $time));
+				$stmt->execute(array($oid, $uid, 'pending', $time));
 				return json_encode(array(1, 'success', 'successfully requested an offer.'));
 			}
 		}
