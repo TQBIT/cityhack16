@@ -103,9 +103,8 @@ input[type="submit"] {
 }
 /*Page Title*/
 .page_title{
-	font-size: 1.7rem;
 	font-weight: bolder;
-	margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 /* offers page*/
@@ -157,10 +156,19 @@ input[type="submit"] {
 	color: green;
 	font-size: 5em;
 }
+.text-center > .glyphicon-ok-sign{
+    color: green;
+	font-size: 3rem;
+}
 
 .glyphicon-remove-sign {
 	color: red;
 	font-size: 5em;
+}
+
+.text-center > .glyphicon-remove-sign{
+    color: red;
+	font-size: 3rem;
 }
 .wrapper {
 	width:90%;
@@ -203,4 +211,14 @@ input[type="submit"] {
 #accept_submit{
 	background-color: #0C2243;
 	color: white;
+}
+
+/*table*/
+.table-borderless tbody tr td,
+.table-borderless tbody tr th,
+.table-borderless thead tr th,
+.table-borderless thead tr td,
+.table-borderless tfoot tr th,
+.table-borderless tfoot tr td {
+    border: none;
 }
