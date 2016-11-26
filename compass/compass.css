@@ -4,7 +4,7 @@ html, body {
 	padding: 0;
 	height: 100%;
 }
-
+/*
 body {
 	margin: 30px;
 	background: rgb(15, 15, 15);
@@ -13,39 +13,36 @@ body {
 	font-family: 'Verdana';
 	text-align: center;
 }
+*/
 
-.compass {
+.compass_container {
 	position: relative;
-	width: 260px;
-	height: 260px;
 	margin: 20px auto;
+	height: 24em;
+	width: 24em;
 	background: #0090CA;
 	padding: 20px;
-	border-radius: 40px;
 	border: 5px solid #444;
 	overflow: hidden;
 }
 
-.compass .disc {
+.compass {
 	position: absolute;
-	top: 20px;
-	left: 20px;
+	top: 1em;
+	left: 1em;
 	z-index: 200;
 	background: url('./images/compass3.svg');
-	width: 260px;
-	height: 260px;
+	width: 22em;
+	height: 22em;
 	background-size: 100%;
 }
 
-.compass .arrow {
+.offer {
 	position: absolute;
-	top: 20px;
-	left: 20px;
-	z-index: 1000;
-/*
-	background: url('./images/arrow.svg');
-*/
-	width: 260px;
-	height: 260px;
+	top: 1em;
+	left: 1em;
+	z-index: 300;
+	width: 22em;
+	height: 22em;
 	background-size: 100%;
 }
