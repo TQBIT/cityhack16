@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         compass.style.transform = "rotate("+ dir +"deg)";
 
 		//for each in the class of svg 'offers'
-		var offers = document.getElementsByClassName('offer');
+		var offers = document.getElementsByClassName('offer_radar');
 		for(loop=0;loop<length.offers;loop++) {
         	offers[loop].style.webkitTransform = "rotate("+ dir +"deg)";
         	offers[loop].style.MozTransform = "rotate("+ dir +"deg)";
