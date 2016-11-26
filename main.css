@@ -67,8 +67,8 @@ label {
 
 /* login/registration/offer creation pages */
 
-input[name="OfferAddress"] {
-	width: 72%;
+input, textarea {
+	width: 100%;
 }
 .noicon {
 	margin-left: 3%;
@@ -103,28 +103,45 @@ input[type="submit"] {
 }
 /*Page Title*/
 .page_title{
-	font-size: 1.7rem;
 	font-weight: bolder;
-	margin-top: 1rem;
+    font-size: 1.5rem;
 }
 
 /* offers page*/
+.panel {
+	border: none;
+}
+
+.panel-default .panel-heading {
+	background-color: #0b2243;
+	border-color: #0b2243;
+}
+
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+	border-style: none;
+}
+
 .offer {
 	background: linear-gradient(to right, #063555, #095b82);
-}
-.offer-avatar {
 }
 .offer-event {
 	margin-left: 0.5rem;
 	font-weight: bold;
+	color: white;
+}
 
+.offer-image {
+	width: 100%;
+	margin: 1rem auto;
+}
+#map {
+	height: 26em;
+	width: 26em;
+	margin: 0 auto;
 }
 .accordion-toggle {
 	margin: 0;
 	padding: 0;
-}
-.accordion-toggle span {
-	color: black;
 }
 .glyphicon-star{
 	color:orange;
@@ -137,10 +154,21 @@ input[type="submit"] {
 }
 .glyphicon-ok-sign {
 	color: green;
+	font-size: 5em;
+}
+.text-center > .glyphicon-ok-sign{
+    color: green;
+	font-size: 3rem;
 }
 
 .glyphicon-remove-sign {
 	color: red;
+	font-size: 5em;
+}
+
+.text-center > .glyphicon-remove-sign{
+    color: red;
+	font-size: 3rem;
 }
 .wrapper {
 	width:90%;
@@ -164,6 +192,11 @@ input[type="submit"] {
 	color: white;
 }
 
+.field select, input[type="datetime-local"] {
+	height: 4rem;
+	width: 100%;
+}
+
 .field .glyphicon {
 	margin-left: 3%;
 	margin-right: 2%;
@@ -178,4 +211,14 @@ input[type="submit"] {
 #accept_submit{
 	background-color: #0C2243;
 	color: white;
+}
+
+/*table*/
+.table-borderless tbody tr td,
+.table-borderless tbody tr th,
+.table-borderless thead tr th,
+.table-borderless thead tr td,
+.table-borderless tfoot tr th,
+.table-borderless tfoot tr td {
+    border: none;
 }

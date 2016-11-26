@@ -1,5 +1,7 @@
 <?php 
 	include 'core.php';
+	include 'search_ws.php';
+
 	$core = new core();
 	
 	if(isset($_GET['action'])) {
@@ -70,6 +72,15 @@
 				print('Invalid Fields.');
 			}
 			break;
+
+		case "search2":
+			if(isset($_GET['lat']) && isset($_GET['lang']) && is_numeric($_GET['lat']) && is_numeric($_GET['lang']) && isset($_GET['radius']) && is_numeric($_GET['radius'])) {
+				print search2($_GET['lat'], $_GET['lang'], $_GET['radius']);
+			} else {
+				print('Invalid Fields.');
+			}
+			break;
+			
 		case "createOffer":
 			if(isset($_GET['name']) && isset($_GET['desc']) && isset($_GET['lat']) && isset($_GET['long']) && isset($_GET['startDate']) && isset($_GET['endDate']) && isset($_GET['limit']) && isset($_GET['catID']) && isset($_GET['address']) && isset($_GET['url'])) {
 				array_map('urlencode', $_GET);

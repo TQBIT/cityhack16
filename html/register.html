@@ -15,50 +15,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
+	<script type="text/javascript" src="../main.js"></script>
 	<title>Serendipity</title>
-	<script>
-		function register() {
-			var username = document.getElementsByName('username')[0].value;
-			var email = document.getElementsByName('email')[0].value;
-			var password = document.getElementsByName('password')[0].value;
-			var confirmPassword = document.getElementsByName('confirmPassword')[0].value;
-			
-			$.get( "../webservice/ws.php?action=register&email=" + email + "&password=" + password + "&username=" + username + "&confirmPassword=" + confirmPassword, function( data ) {
-				data = JSON.parse(data);
-				if(data[0] == 1) {
-					console.log('successfully registered');
-				} else {
-					console.log(data[2]);
-				}
-			});
-		}
-	</script>
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand"><img style="max-width: 100px; margin-top: -3px;" src="../img/serendipity_logo-PNG.png" alt="serendipity"></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="../html/login.html">Login</a></li>
-					<li class="active"><a href="#">Sign Up</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
 	<div class="container">
 		<img class="logo-image" src="../img/serendipity_logo-PNG.png" alt="serendipity">
-		
-		
 		<div class="wrapper">
-			<form method="POST" onsubmit="return false">
+			<form method="POST" onsubmit="return false" id="register_form">
 				<div class="field">
 					<label for="UserName" class="icon glyphicon glyphicon-user"></label>
 					<input type="text" id="UserName" name="username" placeholder="USERNAME" />
@@ -80,9 +44,8 @@
 				</div>
 			</form>
 			<br />
-			<a href="login.html">Already a Member?</a>
+			<a href="../">Already a Member?</a>
 		</div>
-		
 	</div>
 </body>
 </html>
