@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<script>
+function looforlatlong(form_input) {
+	var jsonObj = gooCall(form_input); 
+
+	document.getElementById('lat').innerHTML = jsonObj.geometry.location.lat;
+	document.getElementById('long').innerHTML = jsonObj.geometry.location.lng;
+}
+
+function looforAddr() {
+	var jsonObj = gooCall(form_input); 
+
+	document.getElementById('address_field').innerHTML = jsonObj.geometry.location.address; // ?
+}
+
+
+</script>
+</head>
+<body>
+<form>
+<input type="text" name="addr" id="addr" onChange="looforlatlong(this.value)">
+</form>
+<div id="lat"></div>
+<div id="long"></div>
+<form>
+<input type="text" name="addr" id="lat_input">
+<input type="text" name="addr" id="long_input">
+<input type="submit" onClick="looforAddr()">
+</form>
+<div id="address_field"></div>
+</body>
+</html>
