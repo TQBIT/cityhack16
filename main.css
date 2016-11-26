@@ -152,18 +152,18 @@ input[type="submit"] {
 	font-size:1.5rem;
 	margin-left:-0.3rem;
 }
-.glyphicon-ok-sign {
+.request-icons > .glyphicon-ok-sign {
 	color: green;
-	font-size: 5em;
+	font-size: 4rem;
 }
 .text-center > .glyphicon-ok-sign{
     color: green;
 	font-size: 3rem;
 }
 
-.glyphicon-remove-sign {
+.request-icons > .glyphicon-remove-sign {
 	color: red;
-	font-size: 5em;
+	font-size: 4rem;
 }
 
 .text-center > .glyphicon-remove-sign{
@@ -201,6 +201,9 @@ input[type="submit"] {
 	margin-left: 3%;
 	margin-right: 2%;
 	color: white;
+}
+.request-icons{
+   margin-top: 2rem; 
 }
 
 input[type="submit"] {
