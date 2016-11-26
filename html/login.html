@@ -58,16 +58,26 @@
 	<div class="container">
 		<img class="logo-image" src="../img/serendipity_logo-PNG.png" alt="serendipity">
 		
-		<form onsubmit="return false">	
-            <label><span class="glyphicon glyphicon-user"></span></label>
-			<input type="email" name="email" id="email" placeholder="EMAIL"><br/>
-			<label><span class="glyphicon glyphicon-lock"></span></label>
-			<input type="password" name="password" id="password" placeholder="PASSWORD">
-            <br/><br/>
-            <input type="submit" name="login_submit" id="login_submit" value="LOGIN" onclick="login()"><br/>
+		<div class="wrapper">
+			<form method="POST" onsubmit="return false">
+				<div class="field">
+					<label for="email" class="icon glyphicon glyphicon-user"></label>
+					<input type="text" placeholder="EMAIL" id="email" name="email" />
+				</div>
+				<div class="field">
+					<label for="password" class="glyphicon glyphicon-lock icon"></label>
+					<input type="password" placeholder="PASSWORD" id="password" name="password" />
+				</div>
+				<div class="field">
+					<input type="submit" value="LOGIN" name="submit" onclick="login()" id="login_submit" name="login_submit" />
+				</div>
+			</form>
+			<br />
 			<a href="register.html">Not a member?</a><br/>
 			<a href="forgot.html">Forgot your password?</a>
-		</form>
+		</div>
+		
+		
 	</div>
 <!--</div>-->
 </body>
