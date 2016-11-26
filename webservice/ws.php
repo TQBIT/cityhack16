@@ -56,6 +56,13 @@
 				print('invalid fields');
 			}
 			break;
+			
+		case "request":
+			if(isset($_GET['oid'])) {
+				print $core->requestOffer($oid);
+			}
+			break;
+		
 		case "logout":
 			print $core->logout();
 			break;
