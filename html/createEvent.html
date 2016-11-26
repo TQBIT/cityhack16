@@ -39,21 +39,38 @@
 		</div>
 	</nav>
 	<div class="container">
-		<form method="POST" action="" id="request_form">
-			<!-- ALL INPUTS ARE JUST GOING TO BE ECHOED PHP DATA   -->
-			<input type="hidden" name="OID" id="OID" placeholder="OFFER ID" value="">
-			<input type="hidden" name="UID" id="UID" placeholder="USER ID" value="">
-			<input type="text" name="Offername" id="Offername" placeholder="OFFER NAME" value=""><br/>
-			<textarea form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea><br/>
-			<label for="StartDuration"><span class="glyphicon glyphicon-calendar"></span></label>
-			<input type="datetime-local" name="StartDuration" id="StartDuration" placeholder="OFFER START DURATION" value=""><br/>
-			<label for="EndDuration"><span class="glyphicon glyphicon-calendar"></span></label>
-			<input type="datetime-local" type="datetime" name="EndDuration" id="EndDuration" placeholder="OFFER END DURATION" value=""><br/>
-			<label for="OfferAddress"><span class="glyphicon glyphicon-map-marker"></span></label>
-			<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value=""><br/>
-			<input type="text" name="limit" id="limit" placeholder="OFFER LIMIT" value=""><br/>
-			<input type="submit" name="request_submit" id="request_submit" value="REQUEST OFFER">
-		</form>
+	
+		
+		<div class="wrapper" id="request_form">
+			<form method="POST" onsubmit="return false">
+				<input type="hidden" name="OID" id="OID" placeholder="OFFER ID" value="">
+				<input type="hidden" name="UID" id="UID" placeholder="USER ID" value="">
+				<div class="field">
+					<input type="text" name="Offername" id="Offername" class="noicon" placeholder="OFFER NAME" value="">
+				</div>
+				<div class="field">
+					<textarea form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea>
+				</div>
+				<div class="field">
+					<label for="startDuration" class="icon glyphicon glyphicon-calendar"></label>
+					<input type="datetime-local" name="StartDuration" id="StartDuration" placeholder="OFFER START DURATION" value="">
+				</div>
+				<div class="field">
+					<label for="EndDuration" class="icon glyphicon glyphicon-calendar"></label>
+					<input type="datetime-local" name="EndDuration" id="EndDuration" placeholder="OFFER END DURATION" value="">
+				</div>
+				<div class="field">
+					<label for="OfferAddress" class="icon glyphicon glyphicon-map-marker"></label>
+					<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value="">
+				</div>
+				<div class="field">
+					<input type="text" name="limit" id="limit" placeholder="OFFER LIMIT" class="noicon" value="">
+				</div>
+				<div class="field">
+					<input type="submit" name="request_submit" id="request_submit" value="REQUEST OFFER">
+				</div>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
