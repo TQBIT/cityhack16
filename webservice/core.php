@@ -166,9 +166,7 @@
 			if(preg_match('/^[a-zA-Z0-9]+$/', $username) === false) { //regexp pattern not currently working
 				$this->errors[] = "Username must be only letters and numbers";
 			}
-			if($this->validate($email, 'email') === false) {
-				$this->errors[] = "You must enter a valid email address";
-			}
+			$this->validate($email, 'email');
 			if(preg_match('/^[a-zA-Z]\w{3,14}$/', $password) === false) { //regexp pattern not currently working
 				$this->errors[] = "Your password must only contain letters, numbers and underscores and be between 4 and 15 charecters.";
 			}

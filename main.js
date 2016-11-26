@@ -78,8 +78,6 @@ function login() {
 		if(data[0] == 1) {
 			window.location.replace('html/offers.html');
 		} else {
-			console.log(data[2]);
-			console.log('no');
 			if(document.getElementById('error')) {	
 				document.getElementById('error').innerHTML = data[2];
 			} else {
@@ -104,9 +102,18 @@ function register() {
 	$.get( "../webservice/ws.php?action=register&email=" + email + "&password=" + password + "&username=" + username + "&confirmPassword=" + confirmPassword, function( data ) {
 		data = JSON.parse(data);
 		if(data[0] == 1) {
-			console.log('successfully registered');
+			window.location.replace('../index.html');
 		} else {
-			console.log(data[2]);
+			if(document.getElementById('error')) {	
+				document.getElementById('error').innerHTML = data[2];
+			} else {
+				var error = document.createElement('div');
+				error.setAttribute('class', 'notification');
+				error.setAttribute('id', 'error');
+				var errorText = document.createTextNode(data[2]);
+				error.appendChild(errorText);
+				document.getElementById('hook').appendChild(error);
+			}
 		}
 	});
 }
