@@ -39,7 +39,14 @@
 			}
 			break;
 		case "search":
-			print $core->search();
+			if(isset($_GET['lat']) && isset($_GET['lang']) && is_numeric($_GET['lat']) && is_numeric($_GET['lang']) && isset($_GET['radius']) && is_numeric($_GET['radius'])) {
+				if(isset($_GET['cat']) === false) {
+					$_GET['cat'] = '';
+				}
+				print $core->search($_GET['lat'], $_GET['lang'], $_GET['radius'], $_GET['cat']);
+			} else {
+				print('Invalid Fields.');
+			}
 			break;
 	}
 ?>
