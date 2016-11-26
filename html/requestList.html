@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- css reset -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" integrity="sha256-7VVaJ5GDwFQiLIc+eNksQLUSSY5JNZtqv9o2BI8UGYg=" crossorigin="anonymous" />
+	<!-- jquery & jquery UI-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" integrity="sha256-AAhU14J4Gv8bFupUUcHaPQfvrdNauRHMt+S4UVcaJb0=" crossorigin="anonymous"></script>
+	<!-- bootstrap css & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<!-- main.css -->
+	<link rel="stylesheet" type="text/css" href="../main.css">
+	<script src="../main.js"></script>
+	<title>Serendipity - Offers</title>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span> 
+				</button>
+				<div class="navbar-brand">
+					<img style="max-width: 100px; margin-top: -3px;" src="../img/serendipity_logo-PNG.png" alt="serendipity">
+				</div>
+				<span class="navbar-text visible-xs visible-sm">| REQUEST</span>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="login.html">Login</a></li>
+					<li><a href="register.html">Sign Up</a></li>
+					<li><a href="">Make an Event</a></li> 
+					<li><a href="events.html">Events</a></li> 
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title text-left row">
+						<a class="accordion-toggle col-xs-12" data-toggle="collapse" data-parent="#accordion" href="#offer1">
+							<div class="panel-item col-xs-6 text-left">
+								<span class="glyphicon glyphicon-user offer-avatar"></span>
+								<span class="offer-event">AECOM</span>
+							</div>
+							<div class="panel-item col-xs-6 text-right">
+								<span class="glyphicon glyphicon-chevron-down"></span>
+							</div>
+						</a>
+					</h4>
+				</div>
+				<div id="offer1" class="panel-collapse collapse in">
+					<div class="panel-body text-left">
+						<h4 class="event-title text-left">City Hack 2016</h4>
+						<span>Start Date: </span><span class="event-start">25/11/2016 18:00</span><br/>
+						<span>End Date: </span><span class="event-end">26/11/2016 19:00</span><br/>
+                        <span>Number of requests: </span><span class="number-req">1</span><br/>
+                        <span>Limit: </span><span class="number-req">10</span><br/><br/>
+						<div class="table-responsive">
+                          <table class="table">
+                            <tr>
+                                <td class="text-center">NAMES</td>    
+                                <td class="text-center">RATING</td>
+                                <td class="text-center">ACCEPT</td>
+                                <td class="text-center">DECLINE</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center">USER-A</td>    
+                                <td class="text-center">
+                                    <span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </td>
+                                <td class="text-center">
+                                    <!-- accept -->
+						          <span class="glyphicon glyphicon-ok-sign "></span></td>
+                                <td class="text-center">
+                                    <!-- dismiss -->
+                                    <span class="glyphicon glyphicon-remove-sign"></span></td>
+                            </tr>  
+                          </table>
+                        </div>
+                        <form method="POST" action="" id="accept_all">
+			
+                        <input type="submit" name="accept_submit" id="accept_submit" value="ACCEPT ALL"><br/>
+                    </form>
+                        
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+						
