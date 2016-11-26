@@ -16,6 +16,23 @@
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
 	<title>Serendipity - Login</title>
+    <script>  
+    function login() {
+			var email = document.getElementsByName('email')[0].value;
+			var password = document.getElementsByName('password')[0].value;
+			
+			$.get( "../webservice/ws.php?action=login&email=" + email + "&password=" + password, function( data ) {
+            alert(data);
+			 data = JSON.parse(data);
+			  if(data[0] == 1) {
+				console.log('successfully logged in');
+			 } else {
+				console.log(data[2]);
+                 console.log('no');
+			 }
+			});
+		}
+    </script>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -40,14 +57,14 @@
 	</nav>
 	<div class="container">
 		<img class="logo-image" src="../img/serendipity_logo-PNG.png" alt="serendipity">
-		<form method="POST" action="" id="login_form">
-			
+		
+		<form onsubmit="return false">	
             <label><span class="glyphicon glyphicon-user"></span></label>
 			<input type="email" name="email" id="email" placeholder="EMAIL"><br/>
 			<label><span class="glyphicon glyphicon-lock"></span></label>
 			<input type="password" name="password" id="password" placeholder="PASSWORD">
             <br/><br/>
-            <input type="submit" name="login_submit" id="login_submit" value="LOGIN"><br/>
+            <input type="submit" name="login_submit" id="login_submit" value="LOGIN" onclick="login()"><br/>
 			<a href="register.html">Not a member?</a><br/>
 			<a href="forgot.html">Forgot your password?</a>
 		</form>
