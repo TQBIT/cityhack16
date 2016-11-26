@@ -49,11 +49,15 @@
 			}
 			break;
 		case "createOffer":
-	if(isset($_GET['name']) && isset($_GET['desc']) && isset($_GET['lat']) && isset($_GET['long']) && isset($_GET['startDate']) && isset($_GET['endDate']) && isset($_GET['limit']) && isset($_GET['catID']) && isset($_GET['address']) && isset($_GET['url'])) {
+			if(isset($_GET['name']) && isset($_GET['desc']) && isset($_GET['lat']) && isset($_GET['long']) && isset($_GET['startDate']) && isset($_GET['endDate']) && isset($_GET['limit']) && isset($_GET['catID']) && isset($_GET['address']) && isset($_GET['url'])) {
+				array_map('urlencode', $_GET);
 				print $core->createOffer($_GET['name'], $_GET['desc'], $_GET['lat'], $_GET['long'], $_GET['startDate'], $_GET['endDate'], $_GET['limit'], $_GET['catID'], $_GET['address'], $_GET['url']);
 			} else {
 				print('invalid fields');
 			}
+			break;
+		case "logout":
+			print $core->logout();
 			break;
 	}
 ?>
