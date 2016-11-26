@@ -1,0 +1,186 @@
+body {
+	background: linear-gradient(to right, #023B5B, #0090CA);
+	background-repeat: repeat-y;
+}
+
+h1 {
+	font-size: 4em;
+	text-align: center;
+	color: white;
+}
+
+a {
+	color: white;
+	margin-left: 2.5rem;
+}
+
+label {
+	color: white;
+}
+
+.container {
+	text-align: center;
+}
+
+.navbar-nav li a:hover {
+	color:white !important;
+}
+.active a:hover {
+	color:black !important;
+}
+
+/* bootstrap navbar styles */
+.navbar-default {
+	background-color: #0C2243;
+	border-color: #0C2243;
+	color: white;
+}
+
+.nav li a, .navbar-brand {
+	margin: 0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: white;
+}
+
+.navbar-toggle {
+	border-style: none;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
+	color: white;
+}
+.navbar-text {
+	cursor: pointer;
+	user-select: none;
+}
+
+.logo-image {
+	max-width: 60%;
+	margin: 7rem 0 2.5rem 2.5rem;
+}
+
+.navbar-brand img {
+	display: inline-block;
+}
+
+/* login/registration/offer creation pages */
+
+input[name="OfferAddress"] {
+	width: 72%;
+}
+.noicon {
+	margin-left: 3%;
+}
+
+.glyphicon {
+	font-size: 1.5em;
+	color: white;
+}
+.glyphicon-lock{
+	margin-left:0.2rem;
+}
+input[type="submit"] {
+	width: 100%;
+	font-weight: bolder;
+	font-size: 1.5em;
+	line-height: 3rem;
+}
+
+
+::-webkit-input-placeholder {
+	color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: white;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+	color: white;  
+}
+:-ms-input-placeholder {  
+	color: white;  
+}
+/*Page Title*/
+.page_title{
+	font-size: 1.7rem;
+	font-weight: bolder;
+	margin-top: 1rem;
+}
+
+/* offers page*/
+.offer {
+	background: linear-gradient(to right, #063555, #095b82);
+}
+.offer-avatar {
+}
+.offer-event {
+	margin-left: 0.5rem;
+	font-weight: bold;
+
+}
+.accordion-toggle {
+	margin: 0;
+	padding: 0;
+}
+.accordion-toggle span {
+	color: black;
+}
+.glyphicon-star{
+	color:orange;
+	font-size:1.5rem;
+}
+.glyphicon-star-empty{
+	color:goldenrod;
+	font-size:1.5rem;
+	margin-left:-0.3rem;
+}
+.glyphicon-ok-sign {
+	color: green;
+}
+
+.glyphicon-remove-sign {
+	color: red;
+}
+.wrapper {
+	width:90%;
+	margin:0 auto;
+	padding:0px;
+	margin-top:15px;
+}
+.field {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	background-color: #93A6BA;
+	line-height: 4rem;
+	margin: 1rem 0;
+}
+
+.field input, .field textarea, .field select {
+	background-color: #93A6BA;
+	outline:none;
+	border:none;
+	color: white;
+}
+
+.field select {
+	height: 4rem;
+	width: 100%;
+}
+
+.field .glyphicon {
+	margin-left: 3%;
+	margin-right: 2%;
+	color: white;
+}
+
+input[type="submit"] {
+	background-color: white;
+	color: black;
+}
+/*submit button*/
+#accept_submit{
+	background-color: #0C2243;
+	color: white;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Serendipity</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" integrity="sha256-7VVaJ5GDwFQiLIc+eNksQLUSSY5JNZtqv9o2BI8UGYg=" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="../main.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" async></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" async></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js" async></script>
+
+        <link rel="stylesheet" href="compass.css">       
+        <script src="compass.js"></script>    
+
+<script>
+	window.onload = function() {
+		var rotate = offer239.getAttribute('heading');
+		offer239.style.transform = "rotate("+ rotate +"deg)";
+		var rotate = offer249.getAttribute('heading');
+		offer249.style.transform = "rotate("+ rotate +"deg)";
+	}
+</script>
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-default">
+			<a href="#" class="navbar-brand">Serendipity</a>
+		</nav>
+		<div class="jumbotron">
+
+			<h1>Compass!</h1>
+			<div class="compass_container">
+
+				<div class="compass" id="compassDisk">
+				</div>
+
+				<svg id="offer239" class="offer_radar" width="22em" heading="44" height="22em"
+					xmlns="http://www.w3.org/2000/svg">
+					<circle cx="11em" cy="1em" r=".5em" fill="yellow"/>
+				</svg>
+
+				<svg id="offer249" class="offer_radar" width="22em" heading="244" height="22em"
+					xmlns="http://www.w3.org/2000/svg">
+					<circle cx="11em" cy="6em" r=".5em" fill="yellow"/>
+				</svg>
+
+			</div>
+
+			<div class="orientation-data">
+				<div>Tilt F to B: <span id="tiltFB"></span></div>
+				<div>Tilt L to R: <span id="tiltLR"></span></div>
+				<div>Direction: <span id="direction"></span></div>
+				<div>Lat: <span id="lat"></span></div>
+				<div>Long: <span id="long"></span></div>
+				<div>Accuracy: <span id="acc"></span></div>
+				<div>Elevation: <span id="elevation"></span></div>
+				<div>Heading: <span id="heading"></span></div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

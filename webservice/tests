@@ -1,0 +1,27 @@
+# user
+curl http://localhost/cityhack16/webservice/ws.php?action=register                 #
+curl http://localhost/cityhack16/webservice/ws.php?action=login                    #
+curl http://localhost/cityhack16/webservice/ws.php?action=checklogin
+curl http://localhost/cityhack16/webservice/ws.php?action=userdetail&UID=2
+
+# offers
+curl http://localhost/cityhack16/webservice/ws.php?action=createOffer              #
+curl http://localhost/cityhack16/webservice/ws.php?action=offerdetails&OID=2
+
+# request
+curl http://localhost/cityhack16/webservice/ws.php?action=requestOffer&OID=2
+curl http://localhost/cityhack16/webservice/ws.php?action=listRequesters&OID=2
+curl http://localhost/cityhack16/webservice/ws.php?action=acceptRequest&RID=2
+curl http://localhost/cityhack16/webservice/ws.php?action=rejectRequest&RID=2
+
+# ratings
+curl http://localhost/cityhack16/webservice/ws.php?action=rateuser&UID=2&OID=2
+curl http://localhost/cityhack16/webservice/ws.php?action=getrating&UID=2
+
+# search
+curl http://localhost/cityhack16/webservice/ws.php?action=search&lat=1&long=1&cat=1 
+
+# categories
+curl http://localhost/cityhack16/webservice/ws.php?action=getcategorylist
+
+
