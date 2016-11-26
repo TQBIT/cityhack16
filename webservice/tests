@@ -14,7 +14,7 @@ curl http://localhost/cityhack16/webservice/ws.php?action=rejectrequest&OID=2
 curl http://localhost/cityhack16/webservice/ws.php?action=rateuser&UID=2&OID=2
 curl http://localhost/cityhack16/webservice/ws.php?action=getrating&UID=2
 # search
-curl http://localhost/cityhack16/webservice/ws.php?action=search                   #
+curl http://localhost/cityhack16/webservice/ws.php?action=search&lat=1&long=1&cat=1                   #
 # categories
 curl http://localhost/cityhack16/webservice/ws.php?action=getcategorylist
 
