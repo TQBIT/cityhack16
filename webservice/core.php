@@ -1,15 +1,5 @@
 <?php 
 	session_start();
-	 function Haversine($start, $finish) {
-	$theta = $start[1] - $finish[1];
-
-	$distance = (sin(deg2rad($start[0])) * sin(deg2rad($finish[0]))) + (cos(deg2rad($start[0])) * cos(deg2rad($finish[0])) * cos(deg2rad($theta))); 
-	$distance = acos($distance); 
-	$distance = rad2deg($distance); 
-	$distance = $distance * 60 * 1.1515;
-
-	return round($distance, 2);
-}
 	class core {
 		public function __construct() {
 			$this->pdo = new  PDO('mysql:dbname=serendipity;host=127.0.0.1', 'root', '');
@@ -36,31 +26,52 @@
 			}
 		}
 		
-		//public function search($lat, $lang, $radius, $cat) {
-		public function search() {
-			
-			$this->address = [-27.455575,153.036710];
+		public function getCatID($catDesc) {
+			$stmt = $this->pdo->prepare("SELECT `CatID` FROM `category` WHERE `CatDesc` = ?");
+			$stmt->execute(array($catDesc));
+			$category = $stmt->fetch();
+			return $category['CatID'];
+		}
+		
+		public function search($lat, $long, $radius, $cat) {
+			if(is_array($cat)) {
+				$ids = array();
+				for($i = 0; $i < count($cat); $i++) {
+					$ids[] = $cat[$i];
+				}
+			} else {
+				$ids = array($cat);
+			}
+			$stmt = $this->pdo->prepare("SELECT * FROM `offer`");
+			$address = [$lat,$long];
 
-			$distancePerDegree= 111.045; //km. 63 for miles
-			$withinDistance=1000;
+			$distancePerDegree = 111.045; //km. 63 for miles
+			$withinDistance = $radius;
 
 			$latRange=[
-				$this->address[0]-$withinDistance/$distancePerDegree,
-				$this->address[0]+$withinDistance/$distancePerDegree
+				$address[0]-$withinDistance/$distancePerDegree,
+				$address[0]+$withinDistance/$distancePerDegree
 			];
 
 			$lonRange=[
-				$this->address[1]-$withinDistance/abs(cos(deg2rad($this->address[0]))*$distancePerDegree),
-				$this->address[1]+$withinDistance/abs(cos(deg2rad($this->address[0]))*$distancePerDegree)
+				$address[1]-$withinDistance/abs(cos(deg2rad($address[0]))*$distancePerDegree),
+				$address[1]+$withinDistance/abs(cos(deg2rad($address[0]))*$distancePerDegree)
 			];
 
-			$stmt = $this->pdo->prepare("SELECT `OfferName`, `OfferLat`, `OfferLong` FROM `offer` ");
-			$stmt->execute();
+			$stmt = $this->pdo->prepare("SELECT * FROM `offer` WHERE (`OfferLat` BETWEEN ? and ?) AND (`OfferLong` BETWEEN {$lonRange[0]} and {$lonRange[1]}) ");
+			$stmt->execute(array($latRange[0], $latRange[1]));
 			$points = $stmt->fetchAll();
-			//return var_dump($points);
-			$points = array_filter($points, function($p) {
-				return Haversine($this->address, [$p->OfferLat, $p->OfferLong])<=$withinDistance;
-			});
+			$events = array();
+			foreach($points as $point) {
+				if(in_array($point['CatID'], $ids) || $ids[0] == '') {
+					$events[] = $point;
+				}
+			}
+			if(empty($events)) {
+				return json_encode(array(0, 'fail', 'no events found'));
+			}
+			return json_encode($events);
+
 		}
 		
 		public function register($username, $email, $password, $confirmPassword) {
