@@ -1,6 +1,6 @@
 <?php 
 	include 'core.php';
-	include 'search_ws';
+	include 'search_ws.php';
 
 	$core = new core();
 	

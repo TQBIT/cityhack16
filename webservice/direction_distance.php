@@ -28,12 +28,12 @@ function DistAB($lat_a, $long_a, $lat_b, $long_b) {
 
     $alpha    = $delta_lat/2;
     $beta     = $delta_lon/2;
-    $a        = sin(deg2rad($alpha)) * sin(deg2rad($alpha)) + cos(deg2rad($this->lat_a)) * cos(deg2rad($this->lat_b)) * sin(deg2rad($beta)) * sin(deg2rad($beta)) ;
+    $a        = sin(deg2rad($alpha)) * sin(deg2rad($alpha)) + cos(deg2rad($lat_a)) * cos(deg2rad($lat_b)) * sin(deg2rad($beta)) * sin(deg2rad($beta)) ;
     $c        = asin(min(1, sqrt($a)));
     $distance = 2*$earth_radius * $c;
     $distance = round($distance, 4);
 
-    $this->measure = $distance;
+    return $distance;
 }
 
 ?>
