@@ -24,8 +24,8 @@
 			var EndDuration = document.getElementsByName('EndDuration')[0].value;
 			var CatID = document.getElementsByName('CatID')[0].value;
 			var OfferAddress = document.getElementsByName('OfferAddress')[0].value;
-			var OfferLat = document.getElementsByName('OfferLat')[0].value;
-			var OfferLong = document.getElementsByName('OfferLong')[0].value;
+			var OfferLat = 1;
+			var OfferLong = 1;
 			var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
 			var ImageURL = '';
 			//var ImageURL = document.getElementsByName('ImageURL')[0].value;
@@ -96,19 +96,13 @@
 					<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value="">
 				</div>
 				<div class="field">
-					<input type="OfferLat" name="OfferLat" id="OfferLat" placeholder="OFFER LAT" value="">
-				</div>                
-				<div class="field">
-					<input type="OfferLong" name="OfferLong" id="OfferLong" placeholder="OFFER LONG" value="">
-				</div>
-				<div class="field">
 					<input type="text" name="OfferLimit" id="limit" placeholder="OFFER LIMIT" class="noicon" value="">
 				</div>
 				<div class="field">
 					<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="createOffer();">
 				</div>
 			</form>
-		</div>
-	</div>
+</div>
+</div>
 </body>
 </html>
