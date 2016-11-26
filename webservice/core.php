@@ -1,15 +1,5 @@
 <?php 
 	session_start();
-	 function Haversine($start, $finish) {
-	$theta = $start[1] - $finish[1];
-
-	$distance = (sin(deg2rad($start[0])) * sin(deg2rad($finish[0]))) + (cos(deg2rad($start[0])) * cos(deg2rad($finish[0])) * cos(deg2rad($theta))); 
-	$distance = acos($distance); 
-	$distance = rad2deg($distance); 
-	$distance = $distance * 60 * 1.1515;
-
-	return round($distance, 2);
-}
 	class core {
 		public function __construct() {
 			$this->pdo = new  PDO('mysql:dbname=serendipity;host=127.0.0.1', 'root', '');
