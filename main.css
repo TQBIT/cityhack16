@@ -18,13 +18,10 @@ label {
 	color: white;
 }
 
-.fa-times-circle {
-	color: red;
+.container {
+	text-align: center;
 }
 
-.fa-check-circle {
-	color: green;
-}
 .navbar-nav li a:hover {
 	color:white !important;
 }
@@ -37,6 +34,10 @@ label {
 	background-color: #0C2243;
 	border-color: #0C2243;
 	color: white;
+}
+
+.nav li a, .navbar-brand {
+	margin: 0;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -58,16 +59,12 @@ label {
 .logo-image {
 	max-width: 60%;
 	margin: 3rem 0 2.5rem 2.5rem;
-
 }
 
 .navbar-brand img {
 	display: inline-block;
 }
 
-.container {
-	text-align: center;
-}
 
 /* login/registration/offer creation pages */
 input[type="datetime-local"] {
