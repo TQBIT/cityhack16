@@ -25,7 +25,12 @@ label {
 .fa-check-circle {
 	color: green;
 }
-
+.navbar-nav li a:hover {
+	color:white !important;
+}
+.active a:hover {
+	color:black !important;
+}
 
 /* bootstrap navbar styles */
 .navbar-default {
