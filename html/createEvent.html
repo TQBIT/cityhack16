@@ -15,56 +15,9 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
+	<script type="text/javascript" src="../main.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYT8Hwopd68rBTsvKjJ4Of75aQLQz1inM"></script>
 	<title>Serendipity - Create Event</title>
-	<script>
-		var lat, long;
-		function storeResult(result) {
-			lat = result[0];
-			long = result[1];
-		}
-
-		function getLatLong(address) {
-			var geocoder = new google.maps.Geocoder();
-			var result = [];
-
-			if (geocoder) {
-				geocoder.geocode( { 'address': address, 'region': 'uk' }, function(results, status) {
-					if (status == google.maps.GeocoderStatus.OK) {
-						result[0] = results[0].geometry.location.lat();
-						result[1] = results[0].geometry.location.lng();
-					} else {
-						result = "Unable to find address: " + status;
-					}
-					storeResult(result);
-				});
-			}
-		}
-
-		function createOffer() {
-			var OfferName = document.getElementsByName('OfferName')[0].value;
-			var OfferDesc = document.getElementsByName('OfferDesc')[0].value;
-			var StartDuration = document.getElementsByName('StartDuration')[0].value;
-			var EndDuration = document.getElementsByName('EndDuration')[0].value;
-			var CatID = document.getElementsByName('CatID')[0].value;
-			var OfferAddress = document.getElementsByName('OfferAddress')[0].value;
-			var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
-			var ImageURL = '';
-			getLatLong(OfferAddress);
-			var OfferLat = lat;
-			var OfferLong = long;
-			
-			$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
-				alert(data);
-				data = JSON.parse(data);
-				if(data[0] == 1) {
-					console.log('Offer successfully created');
-				} else {
-					console.log(data[2]);
-				}
-			});
-		}
-	</script>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -84,7 +37,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Create Offer</a></li> 
 					<li><a href="Offers.html">Offers</a></li> 
-					<li><a onclick="window.location.replace('login.html')">Logout</a></li> 
+					<li><a href="../">Logout</a></li> 
 				</ul>
 			</div>
 		</div>

@@ -21,12 +21,12 @@
 			var email = document.getElementsByName('email')[0].value;
 			var password = document.getElementsByName('password')[0].value;
 			
-			$.get( "../webservice/ws.php?action=login&email=" + email + "&password=" + password, function( data ) {
+			$.get( "webservice/ws.php?action=login&email=" + email + "&password=" + password, function( data ) {
 				alert(data);
 				data = JSON.parse(data);
 				if(data[0] == 1) {
 					console.log('successfully logged in');
-					window.location.replace('offers.html');
+					window.location.replace('html/offers.html');
 				} else {
 					console.log(data[2]);
 					console.log('no');
@@ -38,7 +38,6 @@
 <body>
 	<div class="container">
 		<img class="logo-image" src="img/serendipity_logo-PNG.png" alt="serendipity">
-
 		<div class="wrapper">
 			<form method="POST" onsubmit="return false">
 				<div class="field">
@@ -54,8 +53,8 @@
 				</div>
 			</form>
 			<br />
-			<a href="register.html">Not a member?</a><br/>
-			<a href="forgot.html">Forgot your password?</a>
+			<a href="html/register.html">Not a member?</a><br/>
+			<a href="html/forgot.html">Forgot your password?</a>
 		</div>
 	</div>
 	<!--</div>-->
