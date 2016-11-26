@@ -39,6 +39,12 @@ label {
 .nav li a, .navbar-brand {
 	margin: 0;
 }
+.notification {
+	background:red;
+	color:white;
+	margin-top:10px;
+	padding:1%;
+}
 
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: white;
