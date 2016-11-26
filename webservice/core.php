@@ -19,7 +19,7 @@
 		}
 		
 		public function isLogged() {
-			if(isset($_SESSION['uid'])) {
+			if(isset($_SESSION['UID'])) {
 				return true;
 			} else {
 				return false;
@@ -27,13 +27,13 @@
 		}
 		
 		public function register($username, $email, $password, $confirmPassword) {
-			if(preg_match('/^[a-zA-Z0-9]+$/', $username) === false) {
+			if(preg_match('/^[a-zA-Z0-9]+$/', $username) === false) { //regexp pattern not currently working
 				$this->errors[] = "Username must be only letters and numbers";
 			}
 			if($this->validate($email, 'email') === false) {
 				$this->errors[] = "You must enter a valid email address";
 			}
-			if(preg_match('/^[a-zA-Z]\w{3,14}$/', $password) === false) {
+			if(preg_match('/^[a-zA-Z]\w{3,14}$/', $password) === false) { //regexp pattern not currently working
 				$this->errors[] = "Your password must only contain letters, numbers and underscores and be between 4 and 15 charecters.";
 			}
 			if($password != $confirmPassword) {
@@ -58,7 +58,30 @@
 		}
 		
 		public function login($email, $password) {
-			
+			if(empty($email) === false && empty($password) === false) {
+				if($this->validate($email, 'email')) {
+					$stmt = $this->pdo->prepare("SELECT * FROM `user` WHERE `email` = ?");
+					$stmt->execute(array($email));
+					$check = $stmt->fetch();
+					if(!empty($check)) {
+						if(password_verify($password, $check['password'])) {
+							$_SESSION['UID'] = $check['UID'];
+							$_SESSION['username'] = $check['UserName'];
+							return json_encode(array(1, 'success'));
+						} else {
+							$this->errors[] =  "Invalid password.";
+							return json_encode(array(0, 'error', $password, $this->errors));
+						}
+					} else {
+						$this->errors[] = 'Invalid username.';
+						return json_encode(array(0, 'error', $this->errors));
+					}
+				} else {
+					return json_encode(array(0, 'error', $this->errors));
+				}
+			} else {
+				return json_encode(array(0, 'error'));
+			}
 		}
 	}
 ?>
