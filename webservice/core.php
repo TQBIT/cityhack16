@@ -59,8 +59,29 @@
 			
 		}
 		
+		public function getRating($uid) {
+			$stmt = $this->pdo->prepare("SELECT * FROM `rating` WHERE `UID` = ?");
+			$stmt->execute(array($uid));
+			$rating = $stmt->fetch();
+			return json_encode($rating);
+		}
+		
+		public function setRating($uid, $oid, $rating) {
+			$stmt = $this->pdo->prepare("INSERT INTO `rating` (`UID`, `OID`, `rating`) VALUES (?, ?, ?)");
+			$stmt->execute(array($uid, $oid, $rating));
+			return json_encode(array(1, 'success'));
+		}
+		
 		public function acceptRequesr($rid) {
-			
+			$stmt = $this->pdo->prepare("UPDATE `request` SET `status` = 'accepted' WHERE `RID` = ?");
+			$stmt->execute(array($rid));
+			return json_encode(array(1, 'success'));
+		}
+		
+		public function rejectRequest($rid) {
+			$stmt = $this->pdo->prepare("UPDATE `request` SET `status` = 'rejected' WHERE `RID` = ?");
+			$stmt->execute(array($rid));
+			return json_encode(array(1, 'success'));
 		}
 		
 		public function listCategories() {
