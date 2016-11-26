@@ -42,8 +42,12 @@ label {
 	border-style: none;
 }
 
-.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand {
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
 	color: white;
+}
+.navbar-text {
+	cursor: pointer;
+	user-select: none;
 }
 
 .logo-image {
@@ -61,8 +65,6 @@ label {
 }
 
 /* login/registration/offer creation pages */
-
-
 input[type="datetime-local"] {
 	width: 80%;
 }
