@@ -10,10 +10,10 @@ $(document).ready(function() {
 });
 
 // address/lat & long acquision
-var lat, long;
+var OfferLat, OfferLong;
 function storeResult(result) {
-	lat = result[0];
-	long = result[1];
+	OfferLat = result[0];
+	OfferLong = result[1];
 }
 
 function getLatLong(address) {
@@ -57,8 +57,6 @@ function createOffer() {
 	var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
 	var ImageURL = '';
 	getLatLong(OfferAddress);
-	var OfferLat = lat;
-	var OfferLong = long;
 
 	$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
 		alert(data);
@@ -70,6 +68,24 @@ function createOffer() {
 		}
 	});
 }
+
+function login() {
+	var email = document.getElementsByName('email')[0].value;
+	var password = document.getElementsByName('password')[0].value;
+	
+	$.get( "webservice/ws.php?action=login&email=" + email + "&password=" + password, function( data ) {
+		alert(data);
+		data = JSON.parse(data);
+		if(data[0] == 1) {
+			console.log('successfully logged in');
+			window.location.replace('html/offers.html');
+		} else {
+			console.log(data[2]);
+			console.log('no');
+		}
+	});
+}
+
 
 function register() {
 	var username = document.getElementsByName('username')[0].value;

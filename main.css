@@ -109,6 +109,15 @@ input[type="submit"] {
 }
 
 /* offers page*/
+.panel {
+	border: none;
+}
+
+.panel-default .panel-heading {
+	background-color: #0b2243;
+	border-color: #0b2243;
+}
+
 .panel-group .panel-heading+.panel-collapse>.panel-body {
 	border-style: none;
 }
@@ -119,8 +128,9 @@ input[type="submit"] {
 .offer-event {
 	margin-left: 0.5rem;
 	font-weight: bold;
-
+	color: white;
 }
+
 .offer-image {
 	width: 100%;
 	margin: 1rem auto;
@@ -133,9 +143,6 @@ input[type="submit"] {
 .accordion-toggle {
 	margin: 0;
 	padding: 0;
-}
-.accordion-toggle span {
-	color: black;
 }
 .glyphicon-star{
 	color:orange;
