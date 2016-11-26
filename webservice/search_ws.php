@@ -31,7 +31,7 @@
         foreach($points as $point) {
             $bearing = getRhumbLineBearing($lat, $long, $point['OfferLat'], $point['OfferLong']);
             $distance = DistAB($lat, $long, $point['OfferLat'], $point['OfferLong']);
-            $events[] = array($point['OID'], $point['UID'], $point['OfferName'], $point['OfferDesc'], $point['OfferLat'], $point['OfferLong'], $point['ImageURL'], $point['OfferLimit'], $bearing, $distance);
+            $events[] = array('OID'=>$point['OID'], 'UID'=>$point['UID'], 'OfferName'=>$point['OfferName'], 'OfferDesc'=>$point['OfferDesc'], 'OfferLat'=>$point['OfferLat'], 'OfferLong'=>$point['OfferLong'], 'ImageURL'=>$point['ImageURL'], 'OfferLimit'=>$point['OfferLimit'], 'Bearing'=>$bearing,    'Distance'=>$distance);
         }
         return json_encode($events);
     }
