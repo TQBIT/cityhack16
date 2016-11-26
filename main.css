@@ -1,5 +1,6 @@
 body {
 	background: linear-gradient(to right, #023B5B, #0090CA);
+	background-repeat: repeat-y;
 }
 
 h1 {
@@ -50,7 +51,7 @@ a {
 }
 
 /* login page */
-input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"] {
 	background-color: #93A6BA;
 	color: white;
 	border-style: none;
@@ -70,6 +71,8 @@ input[type="email"], input[type="password"] {
 input[type="submit"] {
 	width: 85%;
 	margin: 1rem 0;
+	font-weight: bolder;
+	font-size: 1.5em;
 	line-height: 3rem;
 }
 ::-webkit-input-placeholder {
