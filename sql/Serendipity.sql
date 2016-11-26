@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2016 at 03:00 AM
+-- Generation Time: Nov 26, 2016 at 04:00 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -37,11 +37,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`CatID`, `CatDesc`, `colour`) VALUES
-(1, 'Active', 'red'),
-(2, 'Food and Drink', 'brown'),
+(1, 'Active', 'magenta'),
+(2, 'Food and Drink', 'gold'),
 (3, 'Transport', 'yellow'),
-(4, 'Lodging', 'blue'),
-(6, 'Leisure', 'green');
+(4, 'Lodging', 'deepskyblue'),
+(6, 'Leisure', 'springgreen');
 
 -- --------------------------------------------------------
 
@@ -58,8 +58,8 @@ CREATE TABLE `offer` (
   `EndDuration` datetime NOT NULL,
   `CatID` int(11) NOT NULL,
   `OfferAddress` varchar(1024) NOT NULL,
-  `OfferLat` bigint(20) NOT NULL,
-  `OfferLong` bigint(20) NOT NULL,
+  `OfferLat` float(10,7) NOT NULL,
+  `OfferLong` float(10,7) NOT NULL,
   `Status` enum('open','closed') NOT NULL DEFAULT 'open',
   `OfferLimit` int(11) NOT NULL,
   `ImageURL` varchar(500) NOT NULL
@@ -70,8 +70,8 @@ CREATE TABLE `offer` (
 --
 
 INSERT INTO `offer` (`OID`, `UID`, `OfferName`, `OfferDesc`, `StartDuration`, `EndDuration`, `CatID`, `OfferAddress`, `OfferLat`, `OfferLong`, `Status`, `OfferLimit`, `ImageURL`) VALUES
-(1, 3, 'Dinner at Ribs and Rumps.', 'Help! Friend bailed and have free ticket for dinner and need someone to come along with me.', '2016-11-28 18:30:00', '2016-11-28 20:30:00', 2, '', -27, 153, 'open', 1, 'https://media-cdn.tripadvisor.com/media/photo-s/03/d8/25/10/ribs-and-rumps.jpg'),
-(2, 1, 'Need Cycling companions', 'Usually cycle Sunday mornings through New Farm, starting at Teneriffe Park. Want to join me?', '2016-11-30 09:00:00', '2016-12-12 10:00:00', 1, '', -27, 153, 'open', 3, 'http://www.weekendnotes.com/images/teneriffe-park.JPG');
+(1, 3, 'Dinner at Ribs and Rumps.', 'Help! Friend bailed and have free ticket for dinner and need someone to come along with me.', '2016-11-28 18:30:00', '2016-11-28 20:30:00', 2, '', -27.4527626, 153.0359802, 'open', 1, 'https://media-cdn.tripadvisor.com/media/photo-s/03/d8/25/10/ribs-and-rumps.jpg'),
+(2, 1, 'Need Cycling companions', 'Usually cycle Sunday mornings through New Farm, starting at Teneriffe Park. Want to join me?', '2016-11-30 09:00:00', '2016-12-12 10:00:00', 1, '', -27.4572811, 153.0444336, 'open', 3, 'http://www.weekendnotes.com/images/teneriffe-park.JPG');
 
 -- --------------------------------------------------------
 
