@@ -14,6 +14,10 @@ a {
 	margin-left: 2.5rem;
 }
 
+label {
+	color: white;
+}
+
 .fa-times-circle {
 	color: red;
 }
@@ -73,7 +77,7 @@ input[type="datetime-local"] {
 }
 
 input[name="OfferAddress"] {
-	width: 78%;
+	width: 72%;
 }
 
 .glyphicon {
