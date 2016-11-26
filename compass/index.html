@@ -18,11 +18,10 @@
 
 <script>
 	window.onload = function() {
-        var offers = document.getElementsByClassName('offer_radar');
-		console.log('foo:' + offers.length);
-
-		offer239.style.transform = "rotate("+ 95 +"deg)";
-		offer249.style.transform = "rotate("+ 305 +"deg)";
+		var rotate = offer239.getAttribute('heading');
+		offer239.style.transform = "rotate("+ rotate +"deg)";
+		var rotate = offer249.getAttribute('heading');
+		offer249.style.transform = "rotate("+ rotate +"deg)";
 	}
 </script>
 </head>
@@ -39,12 +38,12 @@
 				<div class="compass" id="compassDisk">
 				</div>
 
-				<svg id="offer239" class="offer_radar" width="22em" height="22em"
+				<svg id="offer239" class="offer_radar" width="22em" heading="44" height="22em"
 					xmlns="http://www.w3.org/2000/svg">
 					<circle cx="11em" cy="1em" r=".5em" fill="yellow"/>
 				</svg>
 
-				<svg id="offer249" class="offer_radar" width="22em" height="22em"
+				<svg id="offer249" class="offer_radar" width="22em" heading="244" height="22em"
 					xmlns="http://www.w3.org/2000/svg">
 					<circle cx="11em" cy="6em" r=".5em" fill="yellow"/>
 				</svg>

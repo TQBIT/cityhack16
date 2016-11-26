@@ -14,7 +14,7 @@
             var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
             var ImageURL = document.getElementsByName('ImageURL')[0].value;
 			
-			$.get( "../webservice/ws.php?action=register&OfferName=" + OfferName + "&UID=" + UID + "&OfferDesc=" + OfferDesc + "&StartDuration=" + StartDuration + "&EndDuration=" + EndDuration + "&CatID=" + CatID + "&OfferAddress=" + OfferAddress + "&OfferLat=" + OfferLat + "&OfferLong=" + OfferLong + "&Status=" + Status + "&OfferLimit=" + OfferLimit + "&ImageURL=" +ImageURL, function( data ) {
+			$.get( "../webservice/ws.php?action=createEvent&OfferName=" + OfferName + "&UID=" + UID + "&OfferDesc=" + OfferDesc + "&StartDuration=" + StartDuration + "&EndDuration=" + EndDuration + "&CatID=" + CatID + "&OfferAddress=" + OfferAddress + "&OfferLat=" + OfferLat + "&OfferLong=" + OfferLong + "&Status=" + Status + "&OfferLimit=" + OfferLimit + "&ImageURL=" +ImageURL, function( data ) {
 			 data = JSON.parse(data);
 			  if(data[0] == 1) {
 				console.log('Offer successfully created');

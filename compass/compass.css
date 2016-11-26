@@ -31,9 +31,9 @@ body {
 	left: 1em;
 	z-index: 200;
 	background: url('./images/compass3.svg');
+	background-size: 22em 22em; 
 	width: 22em;
 	height: 22em;
-	background-size: 100%;
 }
 
 .offer_radar {
@@ -43,5 +43,4 @@ body {
 	z-index: 300;
 	width: 22em;
 	height: 22em;
-	background-size: 100%;
 }

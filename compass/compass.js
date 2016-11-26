@@ -25,14 +25,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		//for each in the class of svg 'offers'
 		var offers = document.getElementsByClassName('offer_radar');
 		for(loop=0;loop<offers.length;loop++) {
-        	offers[loop].style.webkitTransform = "rotate("+ dir +"deg)";
-        	offers[loop].style.MozTransform = "rotate("+ dir +"deg)";
-        	offers[loop].style.transform = "rotate("+ dir +"deg)";
+			heading = offers[loop].getAttribute('heading');
+			if((heading + dir) > 360) {
+				heading = heading + dir - 360;
+			} else {
+				heading = heading + dir;
+			}
+        	offers[loop].style.webkitTransform = "rotate("+ heading +"deg)";
+        	offers[loop].style.MozTransform = "rotate("+ heading +"deg)";
+        	offers[loop].style.transform = "rotate("+ heading +"deg)";
 		}
 		getLocation();
     }
 });
-
 
     function getLocation() {
         if (navigator.geolocation) {
@@ -55,4 +60,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("elevation").innerHTML = "Elevation: " + position.coords.altitude; 
         document.getElementById("heading").innerHTML = "Heading: " + position.coords.heading; 
     }
-
