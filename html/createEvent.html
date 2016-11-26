@@ -73,46 +73,41 @@
 					<input type="text" name="UID" id="UID" placeholder="USER ID" value="">
 				</div>
 			-->				<div class="field">
-					<input type="text" name="Offername" id="Offername" class="noicon" placeholder="OFFER NAME" value="">
-				</div>
-				<div class="field">
-					<Select>
-						<option value-"1">Active</option>
-						<option value-"2">Food and Drink</option>
-						<option value-"3">Transport</option>
-						<option value-"4">Lodging</option>
-						<option value-"5">Leisure</option>
-					</Select>
-				</div>  
-				<div class="field">
-					<textarea class="noicon" form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea>
-				</div>
-				<div class="field">
-					<label for="startDuration" class="icon glyphicon glyphicon-calendar"></label>
-					<input type="datetime-local" name="StartDuration" id="StartDuration" placeholder="OFFER START DURATION" value="">
-				</div>
-				<div class="field">
-					<label for="EndDuration" class="icon glyphicon glyphicon-calendar"></label>
-					<input type="datetime-local" name="EndDuration" id="EndDuration" placeholder="OFFER END DURATION" value="">
-				</div>
-				<div class="field">
-					<label for="OfferAddress" class="icon glyphicon glyphicon-map-marker"></label>
-					<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value="">
-				</div>
-				<div class="field">
-					<input type="OfferLat" name="OfferLat" id="OfferLat" placeholder="OFFER LAT" value="">
-				</div>                
-				<div class="field">
-					<input type="OfferLong" name="OfferLong" id="OfferLong" placeholder="OFFER LONG" value="">
-				</div>
-				<div class="field">
-					<input type="text" name="OfferLimit" id="limit" placeholder="OFFER LIMIT" class="noicon" value="">
-				</div>
-				<div class="field">
-					<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="createEvent()">
-				</div>
-			</form>
+			<input type="text" name="Offername" id="Offername" class="noicon" placeholder="OFFER NAME" value="">
 		</div>
-	</div>
+		<div class="field">
+			<Select>
+				<option value="">OFFER CATEGORY</option>
+				<option value-"1">Active</option>
+				<option value-"2">Food and Drink</option>
+				<option value-"3">Transport</option>
+				<option value-"4">Lodging</option>
+				<option value-"5">Leisure</option>
+			</Select>
+		</div>  
+		<div class="field">
+			<textarea class="noicon" form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea>
+		</div>
+		<div class="field">
+			<label for="startDuration" class="icon glyphicon glyphicon-calendar"></label>
+			<input type="datetime-local" name="StartDuration" id="StartDuration" placeholder="OFFER START DURATION" value="">
+		</div>
+		<div class="field">
+			<label for="EndDuration" class="icon glyphicon glyphicon-calendar"></label>
+			<input type="datetime-local" name="EndDuration" id="EndDuration" placeholder="OFFER END DURATION" value="">
+		</div>
+		<div class="field">
+			<label for="OfferAddress" class="icon glyphicon glyphicon-map-marker"></label>
+			<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value="">
+		</div>
+		<div class="field">
+			<input type="text" name="OfferLimit" id="limit" placeholder="OFFER LIMIT" class="noicon" value="">
+		</div>
+		<div class="field">
+			<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="createEvent()">
+		</div>
+	</form>
+</div>
+</div>
 </body>
 </html>
