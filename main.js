@@ -8,38 +8,66 @@ $(document).ready(function() {
 	});
 
 });
+var OfferLat, OfferLong;
 
 // address/lat & long acquision
-var OfferLat, OfferLong;
-function storeResult(result) {
-	OfferLat = result[0];
-	OfferLong = result[1];
+function storeResult(result, OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL) {
+	var OfferLat = result[0];
+	var OfferLong = result[1];
+	$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
+		alert(data);
+		data = JSON.parse(data);
+		if(data[0] == 1) {
+			console.log('Offer successfully created');
+		} else {
+			console.log(data[2]);
+		}
+	});
+	sessionStorage.setItem('lat', result[0]);
+	sessionStorage.setItem('long', result[1]);
 }
 
-function getLatLong(address) {
+function getLatLong(OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL) {
 	var geocoder = new google.maps.Geocoder();
 	var result = [];
 
 	if (geocoder) {
-		geocoder.geocode( { 'address': address, 'region': 'uk' }, function(results, status) {
+		geocoder.geocode( { 'address': OfferAddress, 'region': 'uk' }, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				result[0] = results[0].geometry.location.lat();
 				result[1] = results[0].geometry.location.lng();
 			} else {
 				result = "Unable to find address: " + status;
 			}
-			storeResult(result);
+			storeResult(result, OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL);
 		});
 	}
 }
 
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(
+			function(position) { showPosition(position); },
+			function(error) { console.log(error) },
+			{ 	enableHighAccuracy: true,
+				maximumAge: 100000,
+				timeout: 5000
+			}
+			);	
+	} else {
+		console.log("Geolocation is not supported by this browser.");
+	}
+}
+
+function showPosition(position) {
+	document.getElementsByName("OfferAddress")[0].value = position.coords.latitude + " " + position.coords.longitude;
+}
 function lookforAddr(form_input) {
 	var geocoder = new google.maps.Geocoder();
 	var latlngStr = form_input.split(',', 2);
 	var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
 	geocoder.geocode({'location': latlng}, function(results, status) {
 		if (status === 'OK') {
-
 			alert(results[0].formatted_address);
 		} else {
 			alert('Geocode was not successful for the following reason: ' + status);
@@ -56,17 +84,7 @@ function createOffer() {
 	var OfferAddress = document.getElementsByName('OfferAddress')[0].value;
 	var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
 	var ImageURL = '';
-	getLatLong(OfferAddress);
-	console.log(OfferLat);
-	$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
-		alert(data);
-		data = JSON.parse(data);
-		if(data[0] == 1) {
-			console.log('Offer successfully created');
-		} else {
-			console.log(data[2]);
-		}
-	});
+	getLatLong(OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL);
 }
 
 function login() {
