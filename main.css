@@ -61,17 +61,7 @@ label {
 }
 
 /* login/registration/offer creation pages */
-input[type="text"], input[type="email"], input[type="password"], textarea, input[type="datetime-local"] {
-	background-color: #93A6BA;
-	color: white;
-	border-style: none;
-	margin: 0.5rem;
-	width: 80%;
-	line-height: 3rem;
-	font-size: 1.5em;
-	padding: 1%;
-	font-weight: lighter;
-}
+
 
 input[type="datetime-local"] {
 	width: 80%;
@@ -89,9 +79,7 @@ input[name="OfferAddress"] {
 	margin-left:0.2rem;
 }
 input[type="submit"] {
-	width: 80%;
-	margin: 1rem 0;
-	margin-left: 2.5rem;
+	width: 100%;
 	font-weight: bolder;
 	font-size: 1.5em;
 	line-height: 3rem;
@@ -135,4 +123,42 @@ input[type="submit"] {
 
 .glyphicon-remove-sign {
 	color: red;
+}
+.wrapper {
+	width:70%;
+	margin:0 auto;
+	padding:0px;
+	margin-top:15px;
+}
+.field {
+	width:100%;
+	display:flex;
+}
+.icon {
+	padding:1%;
+	width:10%;
+	max-width:10%;
+	min-width:10%;
+	background-color: #93A6BA;
+	margin-top:-1px;
+	height:1%;
+	line-height:3rem;
+	font-size:1.5rem;
+}
+input[type="text"], input[type="password"] {
+	padding:1%;
+	background-color: #93A6BA;
+	border:none;
+	width:100%;
+	margin-bottom:10px;
+	color:white;
+	line-height:3rem;
+	font-size:1.5rem;
+	outline:none ;
+}
+.glyphicon {
+	color:white;
+}
+#noicon {
+	width:100%;
 }
