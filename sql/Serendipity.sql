@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 25, 2016 at 07:11 PM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2016 at 01:28 AM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,16 +17,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `Serendipity`
+-- Database: `serendipity`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Category`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `Category` (
+CREATE TABLE `category` (
   `CatID` int(11) NOT NULL,
   `CatDesc` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -34,10 +34,10 @@ CREATE TABLE `Category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Offer`
+-- Table structure for table `offer`
 --
 
-CREATE TABLE `Offer` (
+CREATE TABLE `offer` (
   `OID` int(11) NOT NULL,
   `UID` int(11) NOT NULL,
   `OfferName` varchar(250) NOT NULL,
@@ -49,17 +49,17 @@ CREATE TABLE `Offer` (
   `OfferLat` bigint(20) NOT NULL,
   `OfferLong` bigint(20) NOT NULL,
   `Status` varchar(10) NOT NULL,
-  `AcceptUID` int(11) NOT NULL,
+  `OfferLimit` int(11) NOT NULL,
   `ImageURL` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Rating`
+-- Table structure for table `rating`
 --
 
-CREATE TABLE `Rating` (
+CREATE TABLE `rating` (
   `RID` int(11) NOT NULL,
   `UID` int(11) NOT NULL,
   `OID` int(11) NOT NULL,
@@ -69,23 +69,24 @@ CREATE TABLE `Rating` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Request`
+-- Table structure for table `request`
 --
 
-CREATE TABLE `Request` (
+CREATE TABLE `request` (
   `RID` int(11) NOT NULL,
   `OID` int(11) NOT NULL,
   `UID` int(11) NOT NULL,
+  `Status` char(1) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `User` (
+CREATE TABLE `user` (
   `UID` int(11) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -97,39 +98,39 @@ CREATE TABLE `User` (
 --
 
 --
--- Indexes for table `Category`
+-- Indexes for table `category`
 --
-ALTER TABLE `Category`
+ALTER TABLE `category`
   ADD PRIMARY KEY (`CatID`);
 
 --
--- Indexes for table `Offer`
+-- Indexes for table `offer`
 --
-ALTER TABLE `Offer`
+ALTER TABLE `offer`
   ADD PRIMARY KEY (`OID`),
   ADD KEY `UID` (`UID`),
   ADD KEY `CatID` (`CatID`);
 
 --
--- Indexes for table `Rating`
+-- Indexes for table `rating`
 --
-ALTER TABLE `Rating`
+ALTER TABLE `rating`
   ADD PRIMARY KEY (`RID`),
   ADD KEY `UID` (`UID`),
   ADD KEY `OID` (`OID`);
 
 --
--- Indexes for table `Request`
+-- Indexes for table `request`
 --
-ALTER TABLE `Request`
+ALTER TABLE `request`
   ADD PRIMARY KEY (`RID`),
   ADD KEY `OID` (`OID`),
   ADD KEY `UID` (`UID`);
 
 --
--- Indexes for table `User`
+-- Indexes for table `user`
 --
-ALTER TABLE `User`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`UID`);
 
 --
@@ -137,54 +138,54 @@ ALTER TABLE `User`
 --
 
 --
--- AUTO_INCREMENT for table `Category`
+-- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `Category`
+ALTER TABLE `category`
   MODIFY `CatID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Offer`
+-- AUTO_INCREMENT for table `offer`
 --
-ALTER TABLE `Offer`
+ALTER TABLE `offer`
   MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Rating`
+-- AUTO_INCREMENT for table `rating`
 --
-ALTER TABLE `Rating`
+ALTER TABLE `rating`
   MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `Request`
+-- AUTO_INCREMENT for table `request`
 --
-ALTER TABLE `Request`
+ALTER TABLE `request`
   MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `User`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `User`
+ALTER TABLE `user`
   MODIFY `UID` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `Offer`
+-- Constraints for table `offer`
 --
-ALTER TABLE `Offer`
-  ADD CONSTRAINT `Offer_ibfk_1` FOREIGN KEY (`CatID`) REFERENCES `Category` (`CatID`),
-  ADD CONSTRAINT `Offer_ibfk_2` FOREIGN KEY (`UID`) REFERENCES `User` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `offer`
+  ADD CONSTRAINT `Offer_ibfk_1` FOREIGN KEY (`CatID`) REFERENCES `category` (`CatID`),
+  ADD CONSTRAINT `Offer_ibfk_2` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Rating`
+-- Constraints for table `rating`
 --
-ALTER TABLE `Rating`
-  ADD CONSTRAINT `Rating_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `User` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Rating_ibfk_2` FOREIGN KEY (`OID`) REFERENCES `Offer` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `rating`
+  ADD CONSTRAINT `Rating_ibfk_1` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Rating_ibfk_2` FOREIGN KEY (`OID`) REFERENCES `offer` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `Request`
+-- Constraints for table `request`
 --
-ALTER TABLE `Request`
-  ADD CONSTRAINT `Request_ibfk_1` FOREIGN KEY (`OID`) REFERENCES `Offer` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `Request_ibfk_2` FOREIGN KEY (`UID`) REFERENCES `User` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `request`
+  ADD CONSTRAINT `Request_ibfk_1` FOREIGN KEY (`OID`) REFERENCES `offer` (`OID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Request_ibfk_2` FOREIGN KEY (`UID`) REFERENCES `user` (`UID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
