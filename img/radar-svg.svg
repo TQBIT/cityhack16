@@ -10,6 +10,9 @@
 	.st4{fill:url(#SVGID_4_);}
 	.st5{fill:url(#SVGID_5_);}
 	.st6{fill:url(#SVGID_6_);}
+	.st7{fill:#FFFFFF;}
+	.st8{font-family:'Arial-Black';}
+	.st9{font-size:20.2486px;}
 </style>
 <g>
 	<circle class="st0" cx="293.2" cy="421.4" r="117.1"/>
@@ -32,13 +35,13 @@
 	</linearGradient>
 	<path class="st2" d="M293.1,514.4c-51.3,0-93-41.7-93-93s41.7-93,93-93c51.3,0,93,41.7,93,93S344.4,514.4,293.1,514.4z
 		 M293.1,330.4c-50.2,0-91,40.8-91,91c0,50.2,40.8,91,91,91s91-40.8,91-91C384.1,371.2,343.3,330.4,293.1,330.4z"/>
-	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="366.1474" y1="421.4033" x2="220.0898" y2="421.4033">
+	<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="362.57" y1="421.4033" x2="223.6672" y2="421.4033">
 		<stop  offset="0" style="stop-color:#0D4E74"/>
 		<stop  offset="1" style="stop-color:#0090CA"/>
 	</linearGradient>
-	<path class="st3" d="M293.1,494.4c-40.3,0-73-32.8-73-73s32.8-73,73-73c40.3,0,73,32.8,73,73S333.4,494.4,293.1,494.4z
-		 M293.1,349.9c-39.4,0-71.5,32.1-71.5,71.5c0,39.4,32.1,71.5,71.5,71.5c39.4,0,71.5-32.1,71.5-71.5
-		C364.6,382,332.5,349.9,293.1,349.9z"/>
+	<path class="st3" d="M293.1,490.9c-38.3,0-69.5-31.2-69.5-69.5s31.2-69.5,69.5-69.5c38.3,0,69.5,31.2,69.5,69.5
+		S331.4,490.9,293.1,490.9z M293.1,353.4c-37.5,0-68,30.5-68,68c0,37.5,30.5,68,68,68s68-30.5,68-68
+		C361.1,383.9,330.6,353.4,293.1,353.4z"/>
 	<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="293.1188" y1="466.5019" x2="293.1188" y2="376.3046">
 		<stop  offset="0" style="stop-color:#0D4E74"/>
 		<stop  offset="1" style="stop-color:#0090CA"/>
@@ -47,14 +50,20 @@
 		S318,466.5,293.1,466.5z M293.1,377.3c-24.3,0-44.1,19.8-44.1,44.1c0,24.3,19.8,44.1,44.1,44.1s44.1-19.8,44.1-44.1
 		C337.2,397.1,317.5,377.3,293.1,377.3z"/>
 	<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="292.8691" y1="421.403" x2="293.3691" y2="421.403">
-		<stop  offset="0" style="stop-color:#0D4E74"/>
+		<stop  offset="0" style="stop-color:#0090CA"/>
+		<stop  offset="0.5123" style="stop-color:#0D4E74"/>
 		<stop  offset="1" style="stop-color:#0090CA"/>
 	</linearGradient>
 	<rect x="292.9" y="307.7" class="st5" width="0.5" height="227.4"/>
 	<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="406.8359" y1="421.4033" x2="179.4013" y2="421.4033">
-		<stop  offset="0" style="stop-color:#0D4E74"/>
+		<stop  offset="0" style="stop-color:#0090CA"/>
+		<stop  offset="0.5025" style="stop-color:#0D4E74"/>
 		<stop  offset="1" style="stop-color:#0090CA"/>
 	</linearGradient>
 	<rect x="179.4" y="420.9" class="st6" width="227.4" height="1"/>
+	<text transform="matrix(1 0 0 1 285.0986 329.9975)" class="st7 st8 st9">N</text>
+	<text transform="matrix(1 0 0 1 388.2228 428.4745)" class="st7 st8 st9">E</text>
+	<text transform="matrix(1 0 0 1 285.0988 528.5767)" class="st7 st8 st9">S</text>
+	<text transform="matrix(1 0 0 1 185.5815 428.5131)" class="st7 st8 st9">W</text>
 </g>
 </svg>
