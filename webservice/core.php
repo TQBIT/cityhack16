@@ -72,7 +72,7 @@
 			return json_encode(array(1, 'success'));
 		}
 		
-		public function acceptRequesr($rid) {
+		public function acceptRequest($rid) {
 			$stmt = $this->pdo->prepare("UPDATE `request` SET `status` = 'accepted' WHERE `RID` = ?");
 			$stmt->execute(array($rid));
 			return json_encode(array(1, 'success'));
