@@ -15,7 +15,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
-	<title>Serendipity - Create Event</title>
+	<title>Serendipity - Offers</title>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -32,29 +32,40 @@
 				<ul class="nav navbar-nav">
 					<li><a href="login.html">Login</a></li>
 					<li><a href="register.html">Sign Up</a></li>
-					<li class="active"><a href="#">Make an Event</a></li> 
+					<li><a href="">Make an Event</a></li> 
 					<li><a href="events.html">Events</a></li> 
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<div class="container">
-		<form method="POST" action="" id="request_form">
-			<!-- ALL INPUTS ARE JUST GOING TO BE ECHOED PHP DATA   -->
-			<input type="hidden" name="OID" id="OID" placeholder="OFFER ID" value="">
-			<input type="hidden" name="UID" id="UID" placeholder="USER ID" value="">
-			<input type="text" name="Offername" id="Offername" placeholder="OFFER NAME" value=""><br/>
-			<textarea form="request_form" rows="3" name="OfferDesc" id="offerDesc" placeholder="OFFER DESC"></textarea><br/>
-			<label for="StartDuration"><span class="glyphicon glyphicon-calendar"></span> Start Date</label><br/>
-			<input type="datetime-local" name="StartDuration" id="StartDuration" placeholder="OFFER START DURATION" value=""><br/>
-			<label for="EndDuration"><span class="glyphicon glyphicon-calendar"></span> End Date</label><br/>
-			<input type="datetime-local" type="datetime" name="EndDuration" id="EndDuration" placeholder="OFFER END DURATION" value=""><br/>
-			<label for="OfferAddress"><span class="glyphicon glyphicon-map-marker"></span></label>
-			<input type="text" name="OfferAddress" id="OfferAddress" placeholder="OFFER ADDRESS" value=""><br/>
-			<input type="text" name="limit" id="limit" placeholder="OFFER LIMIT" value=""><br/>
-			<input type="submit" name="request_submit" id="request_submit" value="REQUEST OFFER">
-		</form>
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title text-left row">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#offer1">
+							<span class="glyphicon glyphicon-user"></span>
+							<span class="offer"></span>
+							AECOM
+							<span class="glyphicon glyphicon-chevron-down text-right"></span>
+						</a>
+					</h4>
+				</div>
+				<div id="offer1" class="panel-collapse collapse in">
+					<div class="panel-body text-left">
+						<h4 class="event-title text-left">City Hack 2016</h4>
+						<span>Start Date: </span><span class="event-start">25/11/2016 18:00</span><br/>
+						<span>End Date: </span><span class="event-end">26/11/2016 19:00</span><br/>
+						<img class="event-img" src="http://placehold.it/300x200/" alt="event-image"><br/>
+						<!-- map to be inserted -->
+						<!-- accept -->
+						<span class="glyphicon glyphicon-ok-sign text-right"></span>
+						<!-- dismiss -->
+						<span class="glyphicon glyphicon-remove-sign text-right"></span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
 </body>
 </html>
