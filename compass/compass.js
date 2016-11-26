@@ -23,13 +23,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         compass.style.transform = "rotate("+ dir +"deg)";
 
 		//for each in the class of svg 'offers'
-		//
-		//
 		var offers = document.getElementsByClassName('offer');
-		for(l=0;l<length.offers;l++) {
-        	offers[l].style.webkitTransform = "rotate("+ dir +"deg)";
-        	offers[l].style.MozTransform = "rotate("+ dir +"deg)";
-        	offers[l].style.transform = "rotate("+ dir +"deg)";
+		for(loop=0;loop<length.offers;loop++) {
+        	offers[loop].style.webkitTransform = "rotate("+ dir +"deg)";
+        	offers[loop].style.MozTransform = "rotate("+ dir +"deg)";
+        	offers[loop].style.transform = "rotate("+ dir +"deg)";
 		}
 		getLocation();
     }
