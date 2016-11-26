@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 		//for each in the class of svg 'offers'
 		var offers = document.getElementsByClassName('offer_radar');
-		for(loop=0;loop<length.offers;loop++) {
+		for(loop=0;loop<offers.length;loop++) {
         	offers[loop].style.webkitTransform = "rotate("+ dir +"deg)";
         	offers[loop].style.MozTransform = "rotate("+ dir +"deg)";
         	offers[loop].style.transform = "rotate("+ dir +"deg)";
