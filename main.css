@@ -140,34 +140,28 @@ input[type="submit"] {
 	margin-top:15px;
 }
 .field {
-	width:100%;
-	display:flex;
-}
-.icon {
-	padding:1%;
-	width:10%;
-	max-width:10%;
-	min-width:10%;
+	width: 100%;
+	display: flex;
+	align-items: center;
 	background-color: #93A6BA;
-	margin-top:-1px;
-	height:1%;
-	line-height:3rem;
-	font-size:1.5rem;
+	line-height: 5rem;
+	margin: 4%;
 }
-input[type="text"], input[type="password"], textarea, input[type="datetime-local"] {
-	padding:1%;
+
+.field input, .field textarea {
 	background-color: #93A6BA;
+	outline:none;
 	border:none;
-	width:100%;
-	margin-bottom:10px;
-	color:white;
-	line-height:3rem;
-	font-size:1.5rem;
-	outline:none ;
+	color: white;
 }
-.glyphicon {
-	color:white;
+
+.field .glyphicon {
+	margin-left: 3%;
+	margin-right: 2%;
+	color: white;
 }
-.noicon {
-	width:100%;
+
+input[type="submit"] {
+	background-color: white;
+	color: black;
 }
