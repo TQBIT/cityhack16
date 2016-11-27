@@ -84,6 +84,8 @@ $('.mutliSelect input[type="checkbox"]').on('click', function() {
       },
       slide: function( event, ui ) {
         handle.text( ui.value + "km");
+        document.getElementById("radius").value = ui.value;
+        
       }
     });
   } );
@@ -287,15 +289,16 @@ $(document).ready(function() {
 		</div>
 	</nav>
 	<div class="container" style="text-align:left;">
-        <form style="width:100%;">
+<form style="width:100%;" method= "post" action="offers.php">
  
-<input class="input_diff" id="latitude" type="text" placeholder="LAT" value=""><br/><br/>
-<input class="input_diff" id="longitude" type="text" placeholder="LONG" value=""><br/><br/>  
+<input class="input_diff" id="latitude" name="latitude" type="text" placeholder="LAT" value=""><br/><br/>
+<input class="input_diff" id="longitude" name="longitude" type="text" placeholder="LONG" value=""><br/><br/>  
     
   <div id="slider_container">
 <div id="slider">
   <div id="custom-handle" class="ui-slider-handle"></div>
 </div><br/>
+      <input type="hidden" id="radius" name="radius" value="">
     <div id="slider2">
   <div id="custom-handle2" class="ui-slider-handle"></div>
 </div><br/>
@@ -326,7 +329,7 @@ $(document).ready(function() {
             </ul>
         </div>
     </dd>
-  <button id="filter">Filter</button>
+  <button id="filter" name="filter">Filter</button>
 </dl>
     
 
@@ -350,11 +353,11 @@ $(document).ready(function() {
             $address[1]-$withinDistance/abs(cos(deg2rad($address[0]))*$distancePerDegree),
             $address[1]+$withinDistance/abs(cos(deg2rad($address[0]))*$distancePerDegree)
         ];
-        $sql = "SELECT * FROM offer WHERE (OfferLat BETWEEN {$latRange[0]} and {$latRange[1]}) AND (OfferLong BETWEEN {$lonRange[0]} and {$lonRange[1]})";
+        $sql = "SELECT * FROM offer JOIN user ON user.UID=offer.UID WHERE (OfferLat BETWEEN {$latRange[0]} and {$latRange[1]}) AND (OfferLong BETWEEN {$lonRange[0]} and {$lonRange[1]})";
 
         $stmt = $conn->prepare($sql);
-        var_dump($stmt);
-        die();
+//        var_dump($stmt);
+//        die();
         $stmt->execute();
         $points = $stmt->fetchAll();
 
@@ -366,7 +369,7 @@ $(document).ready(function() {
         foreach($points as $point) {
             $bearing = getRhumbLineBearing($lat, $long, $point['OfferLat'], $point['OfferLong']);
             $distance = DistAB($lat, $long, $point['OfferLat'], $point['OfferLong']);
-            $events[] = array('OID'=>$point['OID'], 'UID'=>$point['UID'], 'OfferName'=>$point['OfferName'], 'OfferDesc'=>$point['OfferDesc'], 'OfferLat'=>$point['OfferLat'], 'OfferLong'=>$point['OfferLong'], 'ImageURL'=>$point['ImageURL'], 'OfferLimit'=>$point['OfferLimit'], 'Bearing'=>$bearing,    'Distance'=>$distance);
+            $events[] = array('OID'=>$point['OID'], 'UID'=>$point['UID'], 'OfferName'=>$point['OfferName'], 'OfferDesc'=>$point['OfferDesc'],'EndDuration'=>$point['EndDuration'],'OfferLat'=>$point['OfferLat'], 'OfferLong'=>$point['OfferLong'], 'ImageURL'=>$point['ImageURL'], 'OfferLimit'=>$point['OfferLimit'], 'UserName'=>$point['UserName'], 'Bearing'=>$bearing,    'Distance'=>$distance);
             echo
                 '<div class="panel-group" id="accordion">
 			<div class="panel panel-default">
@@ -375,7 +378,7 @@ $(document).ready(function() {
 						<a class="accordion-toggle col-xs-12" data-toggle="collapse" data-parent="#accordion" href="#offer1">
 							<div class="panel-item col-xs-9 text-left">
 								<span class="glyphicon glyphicon-user offer-avatar"></span>
-                                <span class="offer-event">'.$point['UID'].'- </span>
+                                <span class="offer-event">'.$point['UserName'].' </span>
                                 <span class="offer-event">'.$point['OfferName'].'</span>
 							</div>
 							<div class="panel-item col-xs-3 text-right">
@@ -393,10 +396,10 @@ $(document).ready(function() {
                             <span class="glyphicon glyphicon-star-empty"></span>
 						</div>
 						<div class="col-xs-12 text-left">
-							<span class="date-color">Start Date: </span><span class="event-start">start duration</span>
+							<span class="date-color">Start Date: </span><span class="event-start">'.$point['StartDuration'].'</span>
 						</div>
 						<div class="col-xs-12 text-left">
-							<span class="date-color">End Date: </span><span class="event-end">end duration</span>
+							<span class="date-color">End Date: </span><span class="event-end">'.$point['EndDuration'].'</span>
 						</div>
 						<div class="col-xs-12">
 							<img class="offer-image" src="http://placehold.it/300x100/" alt="event-image">
@@ -417,7 +420,10 @@ $(document).ready(function() {
         }
         return json_encode($events);
     }
-
+if(!empty($_POST['latitude'])||!empty($_POST['longitude'])||!empty($_POST['radius']) ){
+   search2($_POST['latitude'], $_POST['longitude'], $_POST['radius']); 
+}
+     
 
 ?>
 	</div>
