@@ -60,15 +60,15 @@ function getLocation() {
 }
 
 function showPosition(position) {
-	document.getElementsByName("OfferAddress")[0].value = position.coords.latitude + " " + position.coords.longitude;
+	lookforAddr(position.coords.latitude, position.coords.longitude);
 }
-function lookforAddr(form_input) {
+function lookforAddr(lat, lng) {
 	var geocoder = new google.maps.Geocoder();
-	var latlngStr = form_input.split(',', 2);
-	var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+	var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
 	geocoder.geocode({'location': latlng}, function(results, status) {
 		if (status === 'OK') {
-			alert(results[0].formatted_address);
+			console.log(results[0].formatted_address);
+			document.getElementsByName("OfferAddress")[0].value = results[0].formatted_address;
 		} else {
 			alert('Geocode was not successful for the following reason: ' + status);
 		}
