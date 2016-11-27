@@ -104,8 +104,8 @@ input[type="submit"] {
 /*Page Title*/
 .page_title{
 	font-weight: bold;
-    font-size: 1.8rem;
-   
+	font-size: 1.8rem;
+	
 }
 
 /* offers page*/
@@ -122,16 +122,16 @@ input[type="submit"] {
 	border-style: none;
 }
 .date-color{
-    font-weight: bold;
-    color: dodgerblue;
+	font-weight: bold;
+	color: dodgerblue;
 }
 .offer {
 	background: linear-gradient(to right, #063555, #095b82);
 }
 .offer-title{
-    font-size: 2rem;
-    font-weight: bold;
-    color: dodgerblue;
+	font-size: 2rem;
+	font-weight: bold;
+	color: dodgerblue;
 }
 .offer-event {
 	margin-left: 0.5rem;
@@ -167,7 +167,7 @@ input[type="submit"] {
 	font-size: 4rem;
 }
 .text-center > .glyphicon-ok-sign{
-    color: green;
+	color: green;
 	font-size: 3rem;
 }
 
@@ -177,7 +177,7 @@ input[type="submit"] {
 }
 
 .text-center > .glyphicon-remove-sign{
-    color: red;
+	color: red;
 	font-size: 3rem;
 }
 .wrapper {
@@ -213,7 +213,7 @@ input[type="submit"] {
 	color: white;
 }
 .request-icons{
-   margin-top: 2rem; 
+	margin-top: 2rem; 
 }
 
 input[type="submit"] {
@@ -233,5 +233,5 @@ input[type="submit"] {
 .table-borderless thead tr td,
 .table-borderless tfoot tr th,
 .table-borderless tfoot tr td {
-    border: none;
+	border: none;
 }

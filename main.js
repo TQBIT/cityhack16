@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	
 	// offers chevron toggle event
 	$('.collapse').on('shown.bs.collapse', function(){
 		$(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
