@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+	
 	// offers chevron toggle event
 	$('.collapse').on('shown.bs.collapse', function(){
 		$(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
@@ -8,39 +8,67 @@ $(document).ready(function() {
 	});
 
 });
+var OfferLat, OfferLong;
 
 // address/lat & long acquision
-var OfferLat, OfferLong;
-function storeResult(result) {
-	OfferLat = result[0];
-	OfferLong = result[1];
+function storeResult(result, OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL) {
+	var OfferLat = result[0];
+	var OfferLong = result[1];
+	$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
+		alert(data);
+		data = JSON.parse(data);
+		if(data[0] == 1) {
+			console.log('Offer successfully created');
+		} else {
+			console.log(data[2]);
+		}
+	});
+	sessionStorage.setItem('lat', result[0]);
+	sessionStorage.setItem('long', result[1]);
 }
 
-function getLatLong(address) {
+function getLatLong(OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL) {
 	var geocoder = new google.maps.Geocoder();
 	var result = [];
 
 	if (geocoder) {
-		geocoder.geocode( { 'address': address, 'region': 'uk' }, function(results, status) {
+		geocoder.geocode( { 'address': OfferAddress, 'region': 'uk' }, function(results, status) {
 			if (status == google.maps.GeocoderStatus.OK) {
 				result[0] = results[0].geometry.location.lat();
 				result[1] = results[0].geometry.location.lng();
 			} else {
 				result = "Unable to find address: " + status;
 			}
-			storeResult(result);
+			storeResult(result, OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL);
 		});
 	}
 }
 
-function lookforAddr(form_input) {
+function getLocation() {
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(
+			function(position) { showPosition(position); },
+			function(error) { console.log(error) },
+			{ 	enableHighAccuracy: true,
+				maximumAge: 100000,
+				timeout: 5000
+			}
+			);	
+	} else {
+		console.log("Geolocation is not supported by this browser.");
+	}
+}
+
+function showPosition(position) {
+	lookforAddr(position.coords.latitude, position.coords.longitude);
+}
+function lookforAddr(lat, lng) {
 	var geocoder = new google.maps.Geocoder();
-	var latlngStr = form_input.split(',', 2);
-	var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
+	var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
 	geocoder.geocode({'location': latlng}, function(results, status) {
 		if (status === 'OK') {
-
-			alert(results[0].formatted_address);
+			console.log(results[0].formatted_address);
+			document.getElementsByName("OfferAddress")[0].value = results[0].formatted_address;
 		} else {
 			alert('Geocode was not successful for the following reason: ' + status);
 		}
@@ -56,17 +84,7 @@ function createOffer() {
 	var OfferAddress = document.getElementsByName('OfferAddress')[0].value;
 	var OfferLimit = document.getElementsByName('OfferLimit')[0].value;
 	var ImageURL = '';
-	getLatLong(OfferAddress);
-
-	$.get( "../webservice/ws.php?action=createOffer&name=" + OfferName + "&desc=" + OfferDesc + "&startDate=" + StartDuration + "&endDate=" + EndDuration + "&catID=" + CatID + "&address=" + OfferAddress + "&lat=" + OfferLat + "&long=" + OfferLong + "&limit=" + OfferLimit + "&url=" + ImageURL, function( data ) {
-		alert(data);
-		data = JSON.parse(data);
-		if(data[0] == 1) {
-			console.log('Offer successfully created');
-		} else {
-			console.log(data[2]);
-		}
-	});
+	getLatLong(OfferAddress, OfferName, OfferDesc, StartDuration, EndDuration, CatID, OfferLimit, ImageURL);
 }
 
 function login() {
@@ -74,14 +92,20 @@ function login() {
 	var password = document.getElementsByName('password')[0].value;
 	
 	$.get( "webservice/ws.php?action=login&email=" + email + "&password=" + password, function( data ) {
-		alert(data);
 		data = JSON.parse(data);
 		if(data[0] == 1) {
-			console.log('successfully logged in');
 			window.location.replace('html/offers.html');
 		} else {
-			console.log(data[2]);
-			console.log('no');
+			if(document.getElementById('error')) {	
+				document.getElementById('error').innerHTML = data[2];
+			} else {
+				var error = document.createElement('div');
+				error.setAttribute('class', 'notification');
+				error.setAttribute('id', 'error');
+				var errorText = document.createTextNode(data[2]);
+				error.appendChild(errorText);
+				document.getElementById('hook').appendChild(error);
+			}
 		}
 	});
 }
@@ -96,9 +120,18 @@ function register() {
 	$.get( "../webservice/ws.php?action=register&email=" + email + "&password=" + password + "&username=" + username + "&confirmPassword=" + confirmPassword, function( data ) {
 		data = JSON.parse(data);
 		if(data[0] == 1) {
-			console.log('successfully registered');
+			window.location.replace('../index.html');
 		} else {
-			console.log(data[2]);
+			if(document.getElementById('error')) {	
+				document.getElementById('error').innerHTML = data[2];
+			} else {
+				var error = document.createElement('div');
+				error.setAttribute('class', 'notification');
+				error.setAttribute('id', 'error');
+				var errorText = document.createTextNode(data[2]);
+				error.appendChild(errorText);
+				document.getElementById('hook').appendChild(error);
+			}
 		}
 	});
 }

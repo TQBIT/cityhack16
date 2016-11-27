@@ -66,7 +66,12 @@ label {
 }
 
 /* login/registration/offer creation pages */
-
+.notification {
+	background:red;
+	color:white;
+	margin-top:10px;
+	padding:1%;
+}
 input, textarea {
 	width: 100%;
 }
@@ -103,8 +108,9 @@ input[type="submit"] {
 }
 /*Page Title*/
 .page_title{
-	font-weight: bolder;
-    font-size: 1.5rem;
+	font-weight: bold;
+	font-size: 1.8rem;
+	
 }
 
 /* offers page*/
@@ -120,9 +126,17 @@ input[type="submit"] {
 .panel-group .panel-heading+.panel-collapse>.panel-body {
 	border-style: none;
 }
-
+.date-color{
+	font-weight: bold;
+	color: dodgerblue;
+}
 .offer {
 	background: linear-gradient(to right, #063555, #095b82);
+}
+.offer-title{
+	font-size: 2rem;
+	font-weight: bold;
+	color: dodgerblue;
 }
 .offer-event {
 	margin-left: 0.5rem;
@@ -135,10 +149,11 @@ input[type="submit"] {
 	margin: 1rem auto;
 }
 #map {
-	height: 26em;
-	width: 26em;
+	height:15em;
+	width: 100%;
 	margin: 0 auto;
 }
+
 .accordion-toggle {
 	margin: 0;
 	padding: 0;
@@ -152,22 +167,22 @@ input[type="submit"] {
 	font-size:1.5rem;
 	margin-left:-0.3rem;
 }
-.glyphicon-ok-sign {
+.request-icons > .glyphicon-ok-sign {
 	color: green;
-	font-size: 5em;
+	font-size: 4rem;
 }
 .text-center > .glyphicon-ok-sign{
-    color: green;
+	color: green;
 	font-size: 3rem;
 }
 
-.glyphicon-remove-sign {
+.request-icons > .glyphicon-remove-sign {
 	color: red;
-	font-size: 5em;
+	font-size: 4rem;
 }
 
 .text-center > .glyphicon-remove-sign{
-    color: red;
+	color: red;
 	font-size: 3rem;
 }
 .wrapper {
@@ -202,6 +217,9 @@ input[type="submit"] {
 	margin-right: 2%;
 	color: white;
 }
+.request-icons{
+	margin-top: 2rem; 
+}
 
 input[type="submit"] {
 	background-color: white;
@@ -220,5 +238,5 @@ input[type="submit"] {
 .table-borderless thead tr td,
 .table-borderless tfoot tr th,
 .table-borderless tfoot tr td {
-    border: none;
+	border: none;
 }

@@ -20,9 +20,7 @@ body {
 	margin: 20px auto;
 	height: 24em;
 	width: 24em;
-	background: #0090CA;
 	padding: 20px;
-	border: 5px solid #444;
 }
 
 .compass {
@@ -30,7 +28,7 @@ body {
 	top: 1em;
 	left: 1em;
 	z-index: 200;
-	background: url('./images/compass3.svg');
+	background: url('./images/compass4.svg');
 	background-size: 22em 22em; 
 	width: 22em;
 	height: 22em;
@@ -43,4 +41,8 @@ body {
 	z-index: 300;
 	width: 22em;
 	height: 22em;
+}
+
+.map-category {
+	margin: 0;
 }
