@@ -69,9 +69,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
         $('#search_output').load(searchURL, function(output) {
             populateResults(output);
         });
+		doRotate();
     }
 
-    function populateResults() {
 
+    function doRotate() {
+       var offers = document.getElementsByClassName('offer_radar');
+       for(loop=0;loop<offers.length;loop++) {
+            heading = offers[loop].getAttribute('heading');
+                offers[loop].style.webkitTransform = "rotate("+ dir +"deg)";
+                offers[loop].style.MozTransform = "rotate("+ dir +"deg)";
+                offers[loop].style.transform = "rotate("+ dir +"deg)";
+            }
+    }
+
+    function populateResults(results) {
+		var output_to_inner_html = 'asdfas';
+		results = JSON.parse(results);		
+		for(var loop=0;loop<results.length;loop++) {
+			output_to_inner_html += '<svg id="offer' + results[loop].OID + 
+				'" class="offer_radar" width="22em" heading="' + results[loop].Bearing + 
+				'" height="22em" xmlns="http://www.w3.org/2000/svg">';
+			output_to_inner_html += '<circle cx="11em" cy="6em" r=".5em" fill="yellow"/></svg>';
+		}
+		document.getElementById('compass_points').innerHTML = output_to_inner_html;
 
     }
