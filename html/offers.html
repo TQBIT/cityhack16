@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +14,11 @@
 	<!-- bootstrap css & JS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">
+</script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- google maps API -->
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
@@ -31,9 +37,229 @@
 				map: map
 			});
 		}
+        
+    $(document).ready(function() {
+$(".dropdown dt a").on('click', function() {
+  $(".dropdown dd ul").slideToggle('fast');
+});
+
+$(".dropdown dd ul li a").on('click', function() {
+  $(".dropdown dd ul").hide();
+});
+
+function getSelectedValue(id) {
+  return $("#" + id).find("dt a span.value").html();
+}
+
+$(document).bind('click', function(e) {
+  var $clicked = $(e.target);
+  if (!$clicked.parents().hasClass("dropdown")) $(".dropdown dd ul").hide();
+});
+
+$('.mutliSelect input[type="checkbox"]').on('click', function() {
+
+  var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
+    title = $(this).val() + " ";
+
+  if ($(this).is(':checked')) {
+    var html = '<span title="' + title + '">' + title + '</span>';
+    $('.multiSel').append(html);
+    $(".hida").hide();
+  } else {
+    $('span[title="' + title + '"]').remove();
+    var ret = $(".hida");
+    $('.dropdown dt a').append(ret);
+
+  }
+});
+});
+
+  $( function() {
+    var handle = $( "#custom-handle" );
+    $( "#slider" ).slider({
+      min: 0,
+      max: 100,
+      create: function() {
+        handle.text( $( this ).slider( "value" ) );
+      },
+      slide: function( event, ui ) {
+        handle.text( ui.value + "km");
+      }
+    });
+  } );
+$( function() {
+    var handle = $( "#custom-handle2" );
+    $( "#slider2" ).slider({
+      min: 0,
+      max: 24,
+      create: function() {
+        handle.text( $( this ).slider( "value" ) );
+      },
+      slide: function( event, ui ) {
+        handle.text( ui.value + "hr/s");
+      }
+    });
+  } );
+  
 	</script>
+    <script>
+$(document).ready(function() {
+        function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+				function(position) { showPosition(position); },
+				function(error) { document.getElementById('lat').innerHTML = 'err'; },
+				{ 	enableHighAccuracy: true,
+					maximumAge: 100000,
+					timeout: 5000
+				}
+			);	
+        } else {
+            document.getElementById("lat").innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+    getLocation();
+    function showPosition(position) {
+        document.getElementById("latitude").value = position.coords.latitude;
+        document.getElementById("longitude").value = position.coords.longitude; 
+    }});
+   
+    </script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYT8Hwopd68rBTsvKjJ4Of75aQLQz1inM&callback=initMap"></script>
 	<title>Serendipity - Offers</title>
+    <style>
+    *{
+        font-family: arial;
+    }
+  .dropdown {
+      z-index: 2;
+/*
+    position: absolute;
+    top:50%;
+
+    transform: translateY(-50%);
+      */
+  }
+
+  a {
+    color: #fff;
+  }
+
+  .dropdown dd,
+  .dropdown dt {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .dropdown ul {
+    margin: -1px 0 0 0;
+  }
+
+  .dropdown dd {
+    position: relative;
+  }
+
+  .dropdown a,
+  .dropdown a:visited {
+    color: #fff;
+    text-decoration: none;
+    outline: none;
+    font-size: 12px;
+  }
+
+  .dropdown dt a {
+    background-color: #4F6877;
+    display: block;
+/*    padding: 8px 20px 5px 10px;*/
+/*    min-height: 25px;*/
+    line-height: 24px;
+    overflow: hidden;
+    border: 0;
+    width: 100%;
+  }
+
+  .dropdown dt a span,
+  .multiSel span {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 3px 2px 0;
+  }
+
+  .dropdown dd ul {
+    background-color: #4F6877;
+    border: 0;
+    color: #fff;
+    display: none;
+    left: 0px;
+    padding: 2px 15px 2px 5px;
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    list-style: none;
+    height: 100px;
+    overflow: auto;
+  }
+
+  .dropdown span.value {
+    display: none;
+  }
+
+  .dropdown dd ul li a {
+    padding: 5px;
+    display: block;
+  }
+
+  .dropdown dd ul li a:hover {
+    background-color: #fff;
+  }
+
+  #filter {
+    background-color:#0090ca;
+    width: 100%;
+    border: 0;
+    padding: 10px 0;
+    margin: 5px 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+  }
+ .input_diff {
+    background-color: #4F6877;
+     border: none;
+     min-height: 25px;
+    line-height: 24px;
+     color: white !important;
+     width: 100%;
+    }
+      #custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+  }
+#custom-handle2 {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+  }
+    #slider_container{
+      width: 87%; 
+        margin-left: 2%;
+        text-align: center;
+    }
+    .hida{
+        width: 100%;
+    }
+        input[type=checkbox]{
+            width: auto;
+        }
+
+</style>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -60,7 +286,51 @@
 			</div>
 		</div>
 	</nav>
-	<div class="container">
+	<div class="container" style="text-align:left;">
+        <form style="width:100%;">
+ 
+<input class="input_diff" id="latitude" type="text" placeholder="LAT" value=""><br/><br/>
+<input class="input_diff" id="longitude" type="text" placeholder="LONG" value=""><br/><br/>  
+    
+  <div id="slider_container">
+<div id="slider">
+  <div id="custom-handle" class="ui-slider-handle"></div>
+</div><br/>
+    <div id="slider2">
+  <div id="custom-handle2" class="ui-slider-handle"></div>
+</div><br/>
+    
+</div> 
+<dl class="dropdown"> 
+  
+    <dt>
+    <a href="#" style="margin:0px;">
+      <span class="hida">SELECT CATEGORY</span>    
+      <p class="multiSel"></p>  
+    </a>
+    </dt>
+  
+    <dd>
+        <div class="mutliSelect">
+            <ul>
+                <li>
+                    <input type="checkbox" value="Food" />Food</li>
+                <li>
+                    <input type="checkbox" value="Transport" />Transport</li>
+                <li>
+                    <input type="checkbox" value="Accomodation" />Accomodation</li>
+                <li>
+                    <input type="checkbox" value="Sports" />Sports</li>
+                <li>
+                    <input type="checkbox" value="Music" />Music</li>
+            </ul>
+        </div>
+    </dd>
+  <button id="filter">Filter</button>
+</dl>
+    
+
+</form>
 		<div class="panel-group" id="accordion">
 			<div class="panel panel-default">
 				<div class="panel-heading">
