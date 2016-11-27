@@ -16,9 +16,6 @@
 	<!-- main.css -->
 	<link rel="stylesheet" type="text/css" href="../main.css">
 	<script type="text/javascript" src="../main.js"></script>
-	<script type="text/javascript">
-		getLocation();
-	</script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYT8Hwopd68rBTsvKjJ4Of75aQLQz1inM"></script>
 	<title>Serendipity - Create Event</title>
 </head>
@@ -32,7 +29,7 @@
 					<span class="icon-bar"></span> 
 				</button>
 				<div class="navbar-brand">
-					<img style="max-width: 100px; margin-top: 1px;" src="../img/serendipity_logo-PNG.png" alt="serendipity">
+					<img style="max-width: 100px;" src="../img/serendipity_logo-PNG.png" alt="serendipity">
 				</div>
 				<span class="navbar-text visible-xs visible-sm page_title">| CREATE OFFER</span>
 			</div>
@@ -80,7 +77,7 @@
 					<input type="text" name="OfferLimit" id="limit" placeholder="OFFER LIMIT" class="noicon" value="">
 				</div>
 				<div class="field">
-					<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="setTimeout(createOffer, '500')">
+					<input type="submit" name="request_submit" id="request_submit" value="CREATE OFFER" onclick="createOffer();">
 				</div>
 			</form>
 		</div>

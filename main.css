@@ -39,12 +39,6 @@ label {
 .nav li a, .navbar-brand {
 	margin: 0;
 }
-.notification {
-	background:red;
-	color:white;
-	margin-top:10px;
-	padding:1%;
-}
 
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: white;
@@ -109,8 +103,9 @@ input[type="submit"] {
 }
 /*Page Title*/
 .page_title{
-	font-weight: bolder;
-    font-size: 1.5rem;
+	font-weight: bold;
+    font-size: 1.8rem;
+   
 }
 
 /* offers page*/
@@ -153,6 +148,7 @@ input[type="submit"] {
 	width: 100%;
 	margin: 0 auto;
 }
+
 .accordion-toggle {
 	margin: 0;
 	padding: 0;
